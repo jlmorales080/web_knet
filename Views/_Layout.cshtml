@@ -1,25 +1,23 @@
-@using Umbraco.Cms.Web.Common.PublishedModels;
-@using Umbraco.Cms.Web.Common;
+@using Umbraco.Extensions
+@using Umbraco.Cms.Web.Common.PublishedModels
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
-@inject UmbracoHelper Umbraco
-
 @{
     // Retrieve Global Settings Node
-    // Try finding by alias at root
     var globalSettings = Umbraco.ContentAtRoot()
         .FirstOrDefault(x => x.ContentType.Alias.Equals("globalSettings", StringComparison.InvariantCultureIgnoreCase));
 
-    // Fallback: If not at root, it might be a child of Main Root? Or try by Path if known from API "/globals"
     if (globalSettings == null)
     {
-        // Try getting by path /globals
-        /* 
-           NOTE: Retrieving by path in Razor isn't direct on UmbracoHelper without ID.
-           We'll rely on checking children of root.
-        */
          globalSettings = Umbraco.ContentAtRoot().SelectMany(x => x.Children)
             .FirstOrDefault(x => x.ContentType.Alias.Equals("globalSettings", StringComparison.InvariantCultureIgnoreCase));
     }
+
+    // SEO properties - Using safer retrieval methods for Umbraco 10+
+    var currentContent = Model as IPublishedContent;
+    var standardPage = currentContent as IStandardPage;
+    
+    var pageTitle = standardPage?.PageTitle ?? currentContent?.Name ?? "Knet";
+    var metaDescription = standardPage?.MetaDescription ?? "Ofrecemos servicios de fibra y móvil en La Rioja.";
 }
 
 <!DOCTYPE html>
@@ -27,8 +25,21 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Fibra y móvil en la Rioja | Knet</title>
-    <meta name="description" content="Ofrecemos servicios de fibra y móvil en La Rioja." />
+    <title>@pageTitle | Knet</title>
+    <meta name="description" content="@metaDescription" />
+
+    @if (globalSettings != null && globalSettings.HasValue("favicon"))
+    {
+        var favicon = globalSettings.Value<Umbraco.Cms.Core.Models.MediaWithCrops>("favicon");
+        if (favicon != null)
+        {
+            <link rel="icon" type="image/x-icon" href="@favicon.Url()" />
+        }
+    }
+    else
+    {
+        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    }
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
