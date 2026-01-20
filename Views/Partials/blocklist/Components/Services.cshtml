@@ -1,0 +1,44 @@
+@using Umbraco.Cms.Core.Models.Blocks
+@using Umbraco.Cms.Web.Common.PublishedModels
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<BlockListItem>
+
+@{
+    var content = Model.Content;
+    var title = content.Value<string>("title");
+    var backgroundColor = content.Value<string>("backgroundColor") ?? "bg-salmon";
+    var items = content.Value<IEnumerable<BlockListItem>>("items");
+}
+
+<section class="modulo-icons">
+    <div class="wrapper">
+        <div class="@(backgroundColor.StartsWith("#") ? "" : backgroundColor)" style="@(backgroundColor.StartsWith("#") ? $"background-color: {backgroundColor}; border-radius: 10px; padding: 15px; width: 100%;" : "")">
+            <div>
+                <h2 class="section-title-black">@title</h2>
+            </div>
+
+            <div class="inner-items_icons">
+                @if (items != null)
+                {
+                    foreach (var item in items)
+                    {
+                        var itemContent = item.Content;
+                        var icon = itemContent.Value<IPublishedContent>("icon");
+                        var itemTitle = itemContent.Value<string>("title");
+                        var description = itemContent.Value<string>("description");
+
+                        <div class="item_icon">
+                            @if (icon != null)
+                            {
+                                <img src="@icon.Url()" alt="@icon.Name" width="80" height="80" style="max-width: 100%; height: auto;" />
+                            }
+                            <h3 class="title">@itemTitle.ToUpper()</h3>
+                            <div class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_inline_rich_text">
+                                @Html.Raw(description)
+                            </div>
+                        </div>
+                    }
+                }
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,92 @@
+@using Umbraco.Cms.Web.Common.PublishedModels;
+@using Umbraco.Cms.Core.Models.Blocks;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<IPublishedContent>
+
+@{
+    var logo = Model.Value<IPublishedContent>("siteLogo");
+    var logoUrl = logo?.Url() ?? "";
+    
+    // Fallbacks matching React logic
+    var phone = Model.Value<string>("phoneNumber");
+    if (string.IsNullOrWhiteSpace(phone)) phone = "941 54 40 00";
+    
+    var phoneText = Model.Value<string>("phoneText");
+    if (string.IsNullOrWhiteSpace(phoneText)) phoneText = "941 54 40 00";
+
+    // Navigation Menu
+    var navItemsList = Model.Value<IEnumerable<BlockListItem>>("navigationMenu");
+
+    // Debugging
+    if (Model == null) { <div style="color:red">HEADER MODEL IS NULL</div> }
+    else { 
+        <!-- Title: @Model.Name -->
+        <!-- Nav Items Count: @(navItemsList?.Count() ?? 0) -->
+    }
+}
+
+<div class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module">
+    <section class="top-header">
+        <div class="wrapper">
+            <a href="/">
+                @if (!string.IsNullOrEmpty(logoUrl))
+                {
+                    <img src="@logoUrl" alt="Knet Logo" width="131" height="95" style="max-width: 100%; height: auto;" />
+                }
+            </a>
+
+            <div class="links-menus">
+                <div class="inner-bnts">
+                    <!-- Phone Link -->
+                    <a class="link-tlf aa" href="tel:@(phone.Replace(" ", ""))">
+                        @phoneText
+                    </a>
+
+                    <!-- CTAs - Hardcoded locally in React for Umbraco path, but checked here -->
+                    <!-- React had: Área Cliente (btn-blue-white), ¡Contrata ya! (btn-orange) -->
+                    <a href="/área-cliente" class="btn-blue-white">Área Cliente</a>
+                    <a href="/contrata" class="btn-orange">¡Contrata ya!</a>
+                </div>
+
+                <!-- Mobile Menu Trigger -->
+                <div class="menu-trigger">
+                    <a class="" onclick="this.classList.toggle('open'); document.querySelector('.open-menu').style.display = this.classList.contains('open') ? 'block' : 'none'; document.querySelector('.open-menu').classList.toggle('active-branch');" style="cursor: pointer">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </a>
+                </div>
+
+                <nav>
+                    <span class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_menu">
+                        <div class="hs-menu-wrapper active-branch flyouts hs-menu-flow-horizontal" role="navigation">
+                            <ul role="menu">
+                                @if (navItemsList != null)
+                                {
+                                    foreach (var item in navItemsList)
+                                    {
+                                        // Try retrieving as single Link first (common if Max items is 1)
+                                        var link = item.Content.Value<Umbraco.Cms.Core.Models.Link>("link");
+
+                                        // Fallback: Try retrieving as IEnumerable<Link> if singular is null
+                                        if (link == null)
+                                        {
+                                            var links = item.Content.Value<IEnumerable<Umbraco.Cms.Core.Models.Link>>("link");
+                                            link = links?.FirstOrDefault();
+                                        }
+
+                                        if (link != null)
+                                        {
+                                            <li class="hs-menu-item hs-menu-depth-1">
+                                                <a href="@link.Url" target="@link.Target">@link.Name</a>
+                                            </li>
+                                        }
+                                    }
+                                }
+                            </ul>
+                        </div>
+                    </span>
+                </nav>
+            </div>
+        </div>
+    </section>
+</div>

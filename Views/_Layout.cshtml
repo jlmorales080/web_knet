@@ -1,0 +1,76 @@
+@using Umbraco.Cms.Web.Common.PublishedModels;
+@using Umbraco.Cms.Web.Common;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@inject UmbracoHelper Umbraco
+
+@{
+    // Retrieve Global Settings Node
+    // Try finding by alias at root
+    var globalSettings = Umbraco.ContentAtRoot()
+        .FirstOrDefault(x => x.ContentType.Alias.Equals("globalSettings", StringComparison.InvariantCultureIgnoreCase));
+
+    // Fallback: If not at root, it might be a child of Main Root? Or try by Path if known from API "/globals"
+    if (globalSettings == null)
+    {
+        // Try getting by path /globals
+        /* 
+           NOTE: Retrieving by path in Razor isn't direct on UmbracoHelper without ID.
+           We'll rely on checking children of root.
+        */
+         globalSettings = Umbraco.ContentAtRoot().SelectMany(x => x.Children)
+            .FirstOrDefault(x => x.ContentType.Alias.Equals("globalSettings", StringComparison.InvariantCultureIgnoreCase));
+    }
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fibra y móvil en la Rioja | Knet</title>
+    <meta name="description" content="Ofrecemos servicios de fibra y móvil en La Rioja." />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css2?family=Exo&display=swap" rel="stylesheet" />
+
+    @* Template CSS - matching layout.tsx *@
+    <link rel="stylesheet" href="/hubfs/hub_generated/module_assets/1/106743538906/1744352966097/module_nav-menu.min.css" />
+    <link rel="stylesheet" href="/hubfs/hub_generated/module_assets/1/107258156023/1744352968285/module_mod-header-txt-img.min.css" />
+    <link rel="stylesheet" href="/hubfs/hub_generated/module_assets/1/107377199041/1744352969120/module_mod-ofertas-destacadas.min.css" />
+    <link rel="stylesheet" href="/hubfs/hub_generated/module_assets/1/107378332364/1744352970075/module_mod-iconos-texto-vertical.min.css" />
+    <link rel="stylesheet" href="/hubfs/hub_generated/module_assets/1/107483020790/1744352971867/module_mod-contacto.min.css" />
+    <link rel="stylesheet" href="/hubfs/hub_generated/module_assets/1/107234441165/1744352967402/module_footer.min.css" />
+
+    @* Additional Modules *@
+    <link rel="stylesheet" href="/hubfs/hub_generated/module_assets/1/107487279862/1744352972771/module_mod-heading-tarifas.min.css" />
+    <link rel="stylesheet" href="/hubfs/hub_generated/module_assets/1/107512047308/1744352974671/module_mod-heading-tarifas-fibra-movil.min.css" />
+    <link rel="stylesheet" href="/hubfs/hub_generated/module_assets/1/107626076140/1744352976561/module_mod-heading-tarifas-negocios.min.css" />
+    <link rel="stylesheet" href="/hubfs/hub_generated/module_assets/1/107514226387/1744352975591/module_mod-tv.min.css" />
+    <link rel="stylesheet" href="/hubfs/hub_generated/module_assets/1/107637432250/1744352978412/module_mod-att-cliente.min.css" />
+    <link rel="stylesheet" href="/hubfs/hub_generated/module_assets/1/107640056803/1744352980504/module_mod-header-contrata.min.css" />
+    <link rel="stylesheet" href="/hubfs/hub_generated/module_assets/1/107637434603/1744352979459/module_mod-form.min.css" />
+
+    <link href="/hubfs/hub_generated/template_assets/1/106743538664/1744333204873/template_main.min.css" rel="stylesheet" />
+    
+    @* Local globals if replicated *@
+    <link rel="stylesheet" href="/css/site.css" /> 
+</head>
+<body>
+    @if (globalSettings != null)
+    {
+        @await Html.PartialAsync("Partials/Header", globalSettings)
+    }
+    else
+    {
+        <div class="alert alert-warning">Global Settings not found.</div>
+    }
+
+    @RenderBody()
+
+    @if (globalSettings != null)
+    {
+        @await Html.PartialAsync("Partials/Footer", globalSettings)
+    }
+</body>
+</html>

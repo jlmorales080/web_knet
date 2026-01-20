@@ -1,0 +1,84 @@
+@using Umbraco.Cms.Web.Common.PublishedModels;
+@using Umbraco.Cms.Core.Models.Blocks;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<IPublishedContent>
+
+@{
+    var logo = Model.Value<IPublishedContent>("siteLogo");
+    var logoUrl = logo?.Url() ?? "";
+
+    var footerLinks = Model.Value<IEnumerable<BlockListItem>>("footerLinks");
+    var legalLinks = Model.Value<IEnumerable<BlockListItem>>("legalLinks");
+    var socialLinks = Model.Value<IEnumerable<BlockListItem>>("socialLinks");
+}
+
+<div class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module">
+    <section class="footer">
+        <div class="wrapper">
+            <div class="logo-footer">
+                @if (!string.IsNullOrEmpty(logoUrl))
+                {
+                    <img src="@logoUrl" alt="Knet Logo" width="131" height="95" style="max-width: 100%; height: auto;" />
+                }
+
+                <ul class="socials-links">
+                    @if (socialLinks != null)
+                    {
+                        foreach (var item in socialLinks)
+                        {
+                            var link = item.Content.Value<Umbraco.Cms.Core.Models.Link>("link");
+                            if (link != null)
+                            {
+                                <li>
+                                    <a href="@link.Url" target="_blank" rel="noopener noreferrer">
+                                        <span>@link.Name</span>
+                                    </a>
+                                </li>
+                            }
+                        }
+                    }
+                </ul>
+            </div>
+
+            <div class="links-footer">
+                <div>
+                    <a href="/">Home</a>
+                </div>
+                <div>
+                    <ul>
+                        @if (footerLinks != null)
+                        {
+                            foreach (var item in footerLinks)
+                            {
+                                var link = item.Content.Value<Umbraco.Cms.Core.Models.Link>("link");
+                                if (link != null)
+                                {
+                                    <li><a href="@link.Url" target="@link.Target">@link.Name</a></li>
+                                }
+                            }
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="bottom-bar">
+            <div class="wrapper">
+                <ul class="legales">
+                    @if (legalLinks != null)
+                    {
+                        foreach (var item in legalLinks)
+                        {
+                            var link = item.Content.Value<Umbraco.Cms.Core.Models.Link>("link");
+                            if (link != null)
+                            {
+                                <li>
+                                    <a href="@link.Url" target="@link.Target">@link.Name</a>
+                                </li>
+                            }
+                        }
+                    }
+                </ul>
+            </div>
+        </div>
+    </section>
+</div>

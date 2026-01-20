@@ -1,0 +1,28 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<IStandardPage>
+@{
+    Layout = "_Layout.cshtml";
+    // If Model is null (common in some Razor layout scenarios), try to get it from Umbraco Context
+}
+
+@* 
+   RenderBody can only be called if this file is being used as a Layout.
+   If it's being used as a direct View (like for /fibra), we skip it.
+*@
+@if (ViewContext.View.Path.EndsWith("StandardPage.cshtml", StringComparison.OrdinalIgnoreCase) == false)
+{
+    @RenderBody()
+}
+
+@* Render the Main Content Blocks *@
+@{
+    var content = Model ?? Umbraco.AssignedContentItem as IStandardPage;
+}
+@if (content != null)
+{
+    var blocks = content.Value<IEnumerable<Umbraco.Cms.Core.Models.Blocks.BlockListItem>>("contentBlocks");
+    if (blocks != null && blocks.Any())
+    {
+        @await Html.PartialAsync("Partials/blocklist/default", blocks)
+    }
+}

@@ -1,0 +1,60 @@
+@using Umbraco.Cms.Core.Models.Blocks
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<IEnumerable<BlockListItem>>
+
+@{
+    if (Model?.Any() != true) { return; }
+}
+
+@foreach (var block in Model)
+{
+    var content = block.Content;
+    var typeAlias = content.ContentType.Alias;
+    
+    // Capitalize the alias to match file naming conventions if desired, 
+    // or just use the alias directly if file names match.
+    // e.g. "hero" -> "Hero", "offers" -> "Offers"
+    // For now, assuming exact match or simple capitalization might be needed.
+    // Let's try exact alias first, or better: "Components/" + Alias
+    
+    // We can use a switch or just Convention-based rendering.
+    // Convention: Views/Partials/BlockList/Components/{Alias}.cshtml
+    
+    var partialName = "BlockList/Components/" + typeAlias; 
+    
+    // Mapping Logic
+    switch (typeAlias)
+    {
+        case "heroBlock":
+        case "headerTxtImgBlock":
+            partialName = "BlockList/Components/Hero";
+            break;
+        case "featuredOffersBlock":
+            partialName = "BlockList/Components/Offers";
+            break;
+        case "iconsModuleBlock":
+            partialName = "BlockList/Components/Services";
+            break;
+         case "contactSectionBlock":
+            partialName = "BlockList/Components/Contact";
+            break;
+        default:
+            // Fallback to convention or ignore
+            break;
+    }
+
+    <!-- Block: @typeAlias mapped to @partialName -->
+    try {
+        @await Html.PartialAsync(partialName, block)
+    } catch (InvalidOperationException) {
+
+        <div style="border: 2px dashed red; padding: 10px; margin: 10px 0;">
+            <p><strong>Missing View:</strong> @partialName</p>
+            <p>Create a file at <code>~/Views/Partials/BlockList/Components/@(typeAlias).cshtml</code></p>
+        </div>
+    } catch (Exception ex) {
+         <div style="border: 2px dashed red; padding: 10px; margin: 10px 0;">
+            <p><strong>Error rendering block:</strong> @typeAlias</p>
+            <p>@ex.Message</p>
+        </div>
+    }
+}

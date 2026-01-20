@@ -1,0 +1,90 @@
+@using Umbraco.Cms.Core.Models.Blocks
+@using Umbraco.Cms.Web.Common.PublishedModels
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<BlockListItem>
+
+@{
+    var content = Model.Content;
+    var title = content.Value<string>("title");
+    var description = content.Value<string>("description");
+    var ctaLink = content.Value<Umbraco.Cms.Core.Models.Link>("ctaButton");
+    
+    // sections -> contactInfoSection -> items -> contactInfoItem
+    var sections = content.Value<IEnumerable<BlockListItem>>("sections");
+}
+
+<div class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module">
+    <section class="bg-deco-contacto">
+        <div class="wrapper columns">
+            <!-- Left Column: Title, Description, CTA -->
+            <div class="half-column">
+                <div class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_inline_rich_text">
+                    <h2 class="section-title-contacto">@Html.Raw(title)</h2>
+                </div>
+                
+                <div class="txt-white">
+                    <div class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_inline_rich_text">
+                        @Html.Raw(description)
+                    </div>
+
+                    @if (ctaLink != null)
+                    {
+                        <a href="@ctaLink.Url" class="btn-blue" target="@ctaLink.Target">
+                            <div>@ctaLink.Name</div>
+                        </a>
+                    }
+                </div>
+            </div>
+
+            <!-- Right Column: Contact Info Sections -->
+            <div class="half-column">
+                <div class="white-box">
+                    @if (sections != null)
+                    {
+                        foreach (var sectionItem in sections)
+                        {
+                            var section = sectionItem.Content;
+                            var sectionTitle = section.Value<string>("sectionTitle");
+                            var contactItems = section.Value<IEnumerable<BlockListItem>>("items");
+                            
+                            // Title of the subsection
+                            <div>@sectionTitle</div>
+                            
+                            // Items list
+                            if (contactItems != null)
+                            {
+                                <ul>
+                                    @foreach (var contactItemBlock in contactItems)
+                                    {
+                                        var contactItem = contactItemBlock.Content;
+                                        var icon = contactItem.Value<IPublishedContent>("icon");
+                                        // Fallback for Media Picker 3
+                                        if (icon == null) {
+                                             var icons = contactItem.Value<IEnumerable<IPublishedContent>>("icon");
+                                             icon = icons?.FirstOrDefault();
+                                        }
+                                        
+                                        var text = contactItem.Value<string>("text");
+                                        var link = contactItem.Value<string>("link");
+                                        
+                                        <li>
+                                            @if (!string.IsNullOrEmpty(link))
+                                            {
+                                                <a href="@link">
+                                                    @if (icon != null) { <img src="@icon.Url()" alt="icon" /> } @text
+                                                </a>
+                                            }
+                                            else
+                                            {
+                                                @if (icon != null) { <img src="@icon.Url()" alt="icon" /> } @text
+                                            }
+                                        </li>
+                                    }
+                                </ul>
+                            }
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

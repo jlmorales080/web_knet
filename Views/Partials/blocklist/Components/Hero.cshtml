@@ -1,0 +1,49 @@
+@using Umbraco.Cms.Core.Models.Blocks
+@using Umbraco.Cms.Web.Common.PublishedModels
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<BlockListItem>
+
+@{
+    var content = Model.Content;
+    
+    // Properties: title (RichText/String), description (RichText), image (MediaPicker), ctaButton (MultiUrlPicker) or cta (Link)
+    // Adjusting based on standard naming conventions
+    
+    var title = content.Value<string>("title");             
+    var description = content.Value<string>("description"); // Fetch as string to be safe
+    var image = content.Value<IPublishedContent>("image");
+    var ctaLink = content.Value<Umbraco.Cms.Core.Models.Link>("ctaButton"); 
+    var ctaTitle = ctaLink?.Name;
+    var ctaUrl = ctaLink?.Url;
+}
+
+<div class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module">
+    <section class="header-txt-img">
+        <div class="wrapper">
+            <div class="txt">
+                <div class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_inline_text">
+                    <h1 class="title-header">
+                        @Html.Raw(title.Replace("<span>", "<span class=\"font-benilla\">"))
+                    </h1>
+                </div>
+
+                <div class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_inline_rich_text">
+                    @Html.Raw(description)
+                </div>
+
+                @if (!string.IsNullOrEmpty(ctaUrl))
+                {
+                    <a href="@ctaUrl" class="btn-blue">
+                        <div>@ctaTitle</div>
+                    </a>
+                }
+            </div>
+
+            <div>
+                @if (image != null)
+                {
+                    <img src="@image.Url()" alt="@(image.Name)" width="657" height="657" style="max-width: 100%; height: auto;" />
+                }
+            </div>
+        </div>
+    </section>
+</div>
