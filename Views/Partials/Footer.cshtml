@@ -7,6 +7,7 @@
     var logoUrl = logo?.Url() ?? "";
 
     var footerLinks = Model.Value<IEnumerable<BlockListItem>>("footerLinks");
+    var footerColumns = Model.Value<IEnumerable<BlockListItem>>("footerColumns");
     var legalLinks = Model.Value<IEnumerable<BlockListItem>>("legalLinks");
     var socialLinks = Model.Value<IEnumerable<BlockListItem>>("socialLinks");
 }
@@ -40,23 +41,128 @@
             </div>
 
             <div class="links-footer">
-                <div>
-                    <a href="/">Home</a>
-                </div>
-                <div>
-                    <ul>
-                        @if (footerLinks != null)
+                <div> @* Wrapper for flexbox layout *@
+                    @if (footerColumns != null)
+                    {
+                        var groups = footerColumns.ToList();
+                        for (int i = 0; i < groups.Count; i++)
                         {
-                            foreach (var item in footerLinks)
+                            var column = groups[i];
+                            var title = column.Content.Value<string>("title");
+                            var links = column.Content.Value<IEnumerable<BlockListItem>>("links");
+                            bool isLast = (i == groups.Count - 1);
+
+                            <div style="@(isLast ? "align-items: flex-end; text-align: right;" : "align-items: flex-start; text-align: left;")">
+                                @if (!string.IsNullOrWhiteSpace(title))
+                                {
+                                    <a href="#"><strong>@title</strong></a>
+                                }
+                                @if (links != null)
+                                {
+                                    <ul style="display: flex; flex-direction: column; @(isLast ? "align-items: flex-end;" : "align-items: flex-start;")">
+                                        @foreach (var item in links)
+                                        {
+                                            var link = item.Content.Value<Umbraco.Cms.Core.Models.Link>("link");
+                                            
+                                            if (link != null)
+                                            {
+                                                <li>
+                                                    @if (item.Content.ContentType.Alias.Equals("navigationButtonLink", StringComparison.OrdinalIgnoreCase))
+                                                    {
+                                                        var styleAlias = item.Content.Value<string>("style");
+                                                        var cssClass = styleAlias?.ToLower() switch {
+                                                            "orange" => "btn-orange",
+                                                            "white" => "btn-ghost-blue",
+                                                            "blue-white" => "btn-ghost-blue",
+                                                            _ => "btn-ghost-blue" 
+                                                        };
+                                                        <a href="@link.Url" target="@link.Target" class="@cssClass">@link.Name</a>
+                                                    }
+                                                    else
+                                                    {
+                                                        <a href="@link.Url" target="@link.Target"><strong>@link.Name</strong></a>
+                                                    }
+                                                </li>
+                                            }
+                                        }
+                                    </ul>
+                                }
+                            </div>
+                        }
+                    }
+                    else if (footerLinks != null)
+                    {
+                        var items = footerLinks.ToList();
+                        for (int i = 0; i < items.Count; i++)
+                        {
+                            var item = items[i];
+                            bool isLast = (i == items.Count - 1);
+
+                            if (item.Content.ContentType.Alias.Equals("navigationGroup", StringComparison.OrdinalIgnoreCase))
+                            {
+                                var groupLinks = item.Content.Value<IEnumerable<BlockListItem>>("group");
+                                <div style="@(isLast ? "align-items: flex-end; text-align: right;" : "align-items: flex-start; text-align: left;")">
+                                    @if (groupLinks != null)
+                                    {
+                                        <ul style="display: flex; flex-direction: column; @(isLast ? "align-items: flex-end;" : "align-items: flex-start;")">
+                                            @foreach (var gItem in groupLinks)
+                                            {
+                                                var gLink = gItem.Content.Value<Umbraco.Cms.Core.Models.Link>("link");
+                                                if (gLink != null)
+                                                {
+                                                    <li>
+                                                        @if (gItem.Content.ContentType.Alias.Equals("navigationButtonLink", StringComparison.OrdinalIgnoreCase))
+                                                        {
+                                                            var styleAlias = gItem.Content.Value<string>("style");
+                                                            var cssClass = styleAlias?.ToLower() switch {
+                                                                "orange" => "btn-orange",
+                                                                "white" => "btn-ghost-blue",
+                                                                "blue-white" => "btn-ghost-blue",
+                                                                _ => "btn-ghost-blue" 
+                                                            };
+                                                            <a href="@gLink.Url" target="@gLink.Target" class="@cssClass">@gLink.Name</a>
+                                                        }
+                                                        else
+                                                        {
+                                                            <a href="@gLink.Url" target="@gLink.Target"><strong>@gLink.Name</strong></a>
+                                                        }
+                                                    </li>
+                                                }
+                                            }
+                                        </ul>
+                                    }
+                                </div>
+                            }
+                            else
                             {
                                 var link = item.Content.Value<Umbraco.Cms.Core.Models.Link>("link");
                                 if (link != null)
                                 {
-                                    <li><a href="@link.Url" target="@link.Target">@link.Name</a></li>
+                                    <div style="@(isLast ? "align-items: flex-end; text-align: right;" : "align-items: flex-start; text-align: left;")">
+                                        <ul style="display: flex; flex-direction: column; @(isLast ? "align-items: flex-end;" : "align-items: flex-start;")">
+                                            <li>
+                                                @if (item.Content.ContentType.Alias.Equals("navigationButtonLink", StringComparison.OrdinalIgnoreCase))
+                                                {
+                                                    var styleAlias = item.Content.Value<string>("style");
+                                                    var cssClass = styleAlias?.ToLower() switch {
+                                                        "orange" => "btn-orange",
+                                                        "white" => "btn-ghost-blue",
+                                                        "blue-white" => "btn-ghost-blue",
+                                                        _ => "btn-ghost-blue" 
+                                                    };
+                                                    <a href="@link.Url" target="@link.Target" class="@cssClass">@link.Name</a>
+                                                }
+                                                else
+                                                {
+                                                    <a href="@link.Url" target="@link.Target"><strong>@link.Name</strong></a>
+                                                }
+                                            </li>
+                                        </ul>
+                                    </div>
                                 }
                             }
                         }
-                    </ul>
+                    }
                 </div>
             </div>
         </div>

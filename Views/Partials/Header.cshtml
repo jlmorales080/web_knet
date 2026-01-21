@@ -8,10 +8,10 @@
     
     // Fallbacks matching React logic
     var phone = Model.Value<string>("phoneNumber");
-    if (string.IsNullOrWhiteSpace(phone)) phone = "941 54 40 00";
+    if (string.IsNullOrWhiteSpace(phone)) phone = "602 260 000 / 941 54 40 80";
     
     var phoneText = Model.Value<string>("phoneText");
-    if (string.IsNullOrWhiteSpace(phoneText)) phoneText = "941 54 40 00";
+    if (string.IsNullOrWhiteSpace(phoneText)) phoneText = "Llámanos: 602 260 000 / 941 54 40 80";
 
     // Navigation Menu
     var navItemsList = Model.Value<IEnumerable<BlockListItem>>("navigationMenu");
@@ -36,15 +36,42 @@
 
             <div class="links-menus">
                 <div class="inner-bnts">
-                    <!-- Phone Link -->
-                    <a class="link-tlf aa" href="tel:@(phone.Replace(" ", ""))">
-                        @phoneText
-                    </a>
-
-                    <!-- CTAs - Hardcoded locally in React for Umbraco path, but checked here -->
-                    <!-- React had: Área Cliente (btn-blue-white), ¡Contrata ya! (btn-orange) -->
-                    <a href="/área-cliente" class="btn-blue-white">Área Cliente</a>
-                    <a href="/contrata" class="btn-orange">¡Contrata ya!</a>
+                    <!-- Dynamic CTAs and Phone from Global Settings -->
+                    @{
+                        var headerLinks = Model.Value<BlockListModel>("headerLinks");
+                    }
+                    @if (headerLinks != null)
+                    {
+                        foreach (var item in headerLinks)
+                        {
+                            var link = item.Content.Value<Umbraco.Cms.Core.Models.Link>("link");
+                            
+                            if (link != null)
+                            {
+                                // If it's a NavigationLink, it's the orange phone text
+                                if (item.Content.ContentType.Alias.Equals("navigationLink", StringComparison.OrdinalIgnoreCase))
+                                {
+                                    <a class="link-tlf aa" href="@link.Url">@link.Name</a>
+                                }
+                                // If it's a NavigationButtonLink, it's a styled button
+                                else if (item.Content.ContentType.Alias.Equals("navigationButtonLink", StringComparison.OrdinalIgnoreCase))
+                                {
+                                    var styleAlias = item.Content.Value<string>("style");
+                                    var cssClass = styleAlias?.ToLower() switch {
+                                        "orange" => "btn-orange",
+                                        "white" => "btn-ghost-blue",
+                                        "blue-white" => "btn-ghost-blue",
+                                        _ => "btn-ghost-blue" 
+                                    };
+                                    <a href="@link.Url" target="@link.Target" class="@cssClass">@link.Name</a>
+                                }
+                                else
+                                {
+                                    <a href="@link.Url" target="@link.Target">@link.Name</a>
+                                }
+                            }
+                        }
+                    }
                 </div>
 
                 <!-- Mobile Menu Trigger -->
@@ -64,10 +91,8 @@
                                 {
                                     foreach (var item in navItemsList)
                                     {
-                                        // Try retrieving as single Link first (common if Max items is 1)
                                         var link = item.Content.Value<Umbraco.Cms.Core.Models.Link>("link");
 
-                                        // Fallback: Try retrieving as IEnumerable<Link> if singular is null
                                         if (link == null)
                                         {
                                             var links = item.Content.Value<IEnumerable<Umbraco.Cms.Core.Models.Link>>("link");
@@ -76,8 +101,9 @@
 
                                         if (link != null)
                                         {
+                                            // Navigation menu links MUST be black
                                             <li class="hs-menu-item hs-menu-depth-1">
-                                                <a href="@link.Url" target="@link.Target">@link.Name</a>
+                                                <a href="@link.Url" target="@link.Target" style="color: #000;">@link.Name</a>
                                             </li>
                                         }
                                     }
