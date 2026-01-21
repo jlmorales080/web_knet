@@ -3,7 +3,7 @@
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<IPublishedContent>
 
 @{
-    var logo = Model.Value<IPublishedContent>("siteLogo");
+    var logo = Model.Value<Umbraco.Cms.Core.Models.MediaWithCrops>("siteLogo");
     var logoUrl = logo?.Url() ?? "";
 
     var footerLinks = Model.Value<IEnumerable<BlockListItem>>("footerLinks");
@@ -18,7 +18,9 @@
             <div class="logo-footer">
                 @if (!string.IsNullOrEmpty(logoUrl))
                 {
-                    <img src="@logoUrl" alt="Knet Logo" width="131" height="95" style="max-width: 100%; height: auto;" />
+                    <a href="/">
+                        <img src="@logoUrl" alt="Knet Logo" width="131" height="95" style="max-width: 100%; height: auto;" />
+                    </a>
                 }
 
                 <ul class="socials-links">
@@ -27,11 +29,20 @@
                         foreach (var item in socialLinks)
                         {
                             var link = item.Content.Value<Umbraco.Cms.Core.Models.Link>("link");
+                            var icon = item.Content.Value<Umbraco.Cms.Core.Models.MediaWithCrops>("icon");
+                            
                             if (link != null)
                             {
                                 <li>
-                                    <a href="@link.Url" target="_blank" rel="noopener noreferrer">
-                                        <span>@link.Name</span>
+                                    <a href="@link.Url" target="@link.Target" rel="noopener">
+                                        @if (icon != null)
+                                        {
+                                            <img src="@icon.Url()" alt="@link.Name" />
+                                        }
+                                        else
+                                        {
+                                            <span>@link.Name</span>
+                                        }
                                     </a>
                                 </li>
                             }
