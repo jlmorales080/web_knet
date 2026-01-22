@@ -29,9 +29,13 @@
                         <div class="item_icon">
                             @if (icon != null)
                             {
-                                <img src="@icon.Url()" alt="@icon.Name" width="80" height="80" style="max-width: 100%; height: auto;" />
+                                @* Fixed height container to ensure titles align horizontally *@
+                                <div class="icon-container" style="height: 100px; display: flex; align-items: center; justify-content: center; margin-bottom: 10px;">
+                                    <img src="@icon.Url()" alt="@icon.Name" style="max-height: 100%; width: auto; max-width: 100%;" />
+                                </div>
                             }
-                            <h3 class="title">@itemTitle.ToUpper()</h3>
+                            @* Removed .ToUpper() to respect Umbraco input *@
+                            <h3 class="title" style="text-transform: none;">@itemTitle</h3>
                             <div class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_inline_rich_text">
                                 @Html.Raw(description)
                             </div>
