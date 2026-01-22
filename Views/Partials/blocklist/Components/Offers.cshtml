@@ -4,71 +4,104 @@
 
 @{
     var content = Model.Content;
-    var title = content.Value<string>("title");
     
-    // Assuming 'cards' is a nested Block List (Block List inside Block List) or similar repeater
-    var cards = content.Value<IEnumerable<BlockListItem>>("cards");
+    // Title detection
+    var title = content.Value<string>("title") ?? content.Value<string>("pageTitle") ?? content.Value<string>("titulo");
+    
+    // Subtitle detection
+    var subtitle = content.Value<string>("subtitle") ?? content.Value<string>("subTitle") ?? content.Value<string>("subtitulo");
+
+    // Description detection
+    var description = content.Value<Umbraco.Cms.Core.Strings.IHtmlEncodedString>("description") 
+                    ?? content.Value<Umbraco.Cms.Core.Strings.IHtmlEncodedString>("intro")
+                    ?? content.Value<Umbraco.Cms.Core.Strings.IHtmlEncodedString>("richText");
+
+    var appearance = content.Value<string>("appearance") ?? "Landing"; 
+    
+    // Block Grid
+    var heroContent = content.Value<BlockGridModel>("contentGrid") ?? content.Value<BlockGridModel>("heroContent");
+
+    // Subtitle Styles from Template Inspection (30px, Exo font, etc)
+    var subtitleStyle = "font-size: 30px; line-height: 1.17; font-weight: 400; color: #fff; text-align: center; margin-bottom: 20px; font-family: 'Exo', sans-serif;";
 }
 
 <div class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module">
-    <section class="ofertas_destacadas bg-deco-ofertas">
-        <div class="wrapper">
-            <div class="title">
-                <p>@title</p>
-            </div>
-
-            <div class="inner-cards">
-                @if (cards != null)
+    @if (appearance == "Home")
+    {
+        <section class="ofertas_destacadas bg-deco-ofertas">
+            <div class="wrapper">
+                @if (!string.IsNullOrEmpty(title))
                 {
-                    foreach (var item in cards)
+                    <div class="title">
+                        <p>@Html.Raw(title)</p>
+                    </div>
+                }
+                
+                @if (!string.IsNullOrEmpty(subtitle))
+                {
+                    <h2 class="subtitle-tarifas" style="@subtitleStyle">@Html.Raw(subtitle)</h2>
+                }
+
+                <div class="inner-cards">
+                    @if (heroContent != null)
                     {
-                        var card = item.Content;
-                        // Assuming properties: price (string), priceDecimal (string), period (string), oldPrice (string), title (string), features (RichText), ctaLink (Link)
-                        
-                        var price = card.Value<string>("price");
-                        var priceDecimal = card.Value<string>("priceDecimal");
-                        var period = card.Value<string>("period");
-                        var oldPrice = card.Value<string>("oldPrice");
-                        var cardTitle = card.Value<string>("title");
-                        var features = card.Value<string>("features"); // Fetch as string
-                        var ctaLink = card.Value<Umbraco.Cms.Core.Models.Link>("ctaLink");
-                        
-                        <div class="card">
-                            <div>
-                                <div class="card-precio">
-                                    <div>
-                                        <div class="precio">
-                                            @price
-                                            <div style="display: flex; flex-direction: column; justify-content: space-between">
-                                                <sup>@priceDecimal</sup>
-                                                <sub>@period</sub>
-                                            </div>
-                                        </div>
-                                        @if (!string.IsNullOrEmpty(oldPrice))
-                                        {
-                                            <span class="antes">@oldPrice</span>
-                                        }
-                                        <p class="tarifa">@cardTitle.ToUpper()</p>
-                                    </div>
-                                </div>
+                        foreach (var item in heroContent)
+                        {
+                            @await Html.PartialAsync("_OfferCard", (BlockGridItem)item, new ViewDataDictionary(ViewData) { { "isLanding", false } })
+                        }
+                    }
+                </div>
+            </div>
+        </section>
+    }
+    else
+    {
+        <section class="bg-heading-tarifas bg-heading-tarifas">
+            <div class="wrapper">
+                @if (!string.IsNullOrEmpty(title))
+                {
+                    <div class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_inline_rich_text">
+                        <h1 class="title-tarifas">@Html.Raw(title)</h1>
+                    </div>
+                }
+                
+                @* SUBTITLE (Strictly between Title and Description) - FINAL TEMPLATE DESIGN *@
+                @if (!string.IsNullOrEmpty(subtitle))
+                {
+                    <div class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_inline_rich_text" data-hs-cos-general-type="widget" data-hs-cos-type="inline_rich_text" data-hs-cos-field="subtitle">
+                        <h2 class="subtitle-tarifas" style="@subtitleStyle">@Html.Raw(subtitle)</h2>
+                    </div>
+                }
 
-                                <div class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_inline_rich_text">
-                                     @Html.Raw(features)
-                                </div>
-                            </div>
+                @if (description != null)
+                {
+                    <div class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_inline_rich_text">
+                        @description
+                    </div>
+                }
 
-                            <div>
-                                @if (ctaLink != null)
+                @if (heroContent != null && heroContent.Any())
+                {
+                    <div class="columns" style="margin-top: 70px;">
+                        @foreach (var item in heroContent)
+                        {
+                            var colClass = item.ColumnSpan <= 6 ? "half-column" : ""; 
+                            <div class="@colClass">
+                                @if (item.Content.ContentType.Alias.Contains("Card"))
                                 {
-                                    <a href="@ctaLink.Url" class="btn-blue-icon" target="@ctaLink.Target">
-                                        @ctaLink.Name
-                                    </a>
+                                    <div class="inner-cards">
+                                        @await Html.PartialAsync("_OfferCard", (BlockGridItem)item, new ViewDataDictionary(ViewData) { { "isLanding", true } })
+                                    </div>
+                                }
+                                else
+                                {
+                                    @await Html.PartialAsync("blockgrid/Components/" + item.Content.ContentType.Alias, (BlockGridItem)item)
                                 }
                             </div>
-                        </div>
-                    }
+                        }
+                    </div>
                 }
             </div>
-        </div>
-    </section>
+        </section>
+    }
 </div>
