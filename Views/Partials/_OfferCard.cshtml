@@ -1,0 +1,66 @@
+@using Umbraco.Cms.Core.Models.Blocks
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<BlockGridItem>
+
+@{
+    var card = Model.Content;
+    
+    // Properties fallbacks
+    var price = card.Value<string>("price") ?? card.Value<string>("precio");
+    var priceDecimal = card.Value<string>("priceDecimal") ?? card.Value<string>("decimales");
+    var period = card.Value<string>("period") ?? card.Value<string>("periodo");
+    var oldPrice = card.Value<string>("oldPrice") ?? card.Value<string>("precioAnterior");
+    var cardTitle = card.Value<string>("title") ?? card.Value<string>("cardTitle") ?? card.Value<string>("titulo");
+    
+    var features = card.Value<Umbraco.Cms.Core.Strings.IHtmlEncodedString>("features") 
+                ?? card.Value<Umbraco.Cms.Core.Strings.IHtmlEncodedString>("cardFeatures") 
+                ?? card.Value<Umbraco.Cms.Core.Strings.IHtmlEncodedString>("caracteristicas");
+    
+    var ctaLink = card.Value<Umbraco.Cms.Core.Models.Link>("ctaLink") 
+               ?? card.Value<Umbraco.Cms.Core.Models.Link>("ctaButton") 
+               ?? card.Value<Umbraco.Cms.Core.Models.Link>("boton");
+    
+    var isLanding = ViewData["isLanding"] as bool? ?? true;
+    
+    // Padding fixed to 20x40x20x20 as per template inspection
+    var cardStyle = "padding: 20px 40px 20px 20px; color: #000;";
+}
+
+<div class="card" style="@cardStyle">
+    <div>
+        <div class="card-precio">
+            <div class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_inline_rich_text">
+                <div class="precio">
+                    @price
+                    <div style="display: flex; flex-direction: column; justify-content: space-between;">
+                        <sup>@priceDecimal</sup> 
+                        @* Forced black color for 'IVA incluido' / period *@
+                        <sub style="color: #000 !important;">@period</sub>
+                    </div>
+                </div>
+                @if (!string.IsNullOrEmpty(oldPrice))
+                {
+                    <span class="antes">@oldPrice</span>
+                }
+                @if (!string.IsNullOrEmpty(cardTitle))
+                {
+                    <p class="tarifa">@cardTitle.ToUpper()</p>
+                }
+            </div>
+        </div>
+
+        @if (features != null)
+        {
+            @* Forced black color for features list to avoid inheriting white from Hero section *@
+            <div class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_inline_rich_text" style="color: #000 !important;">
+                @features
+            </div>
+        }
+    </div>
+
+    @if (ctaLink != null)
+    {
+        <div class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_inline_rich_text">
+            <a href="@ctaLink.Url" class="btn-blue-icon" target="@ctaLink.Target">@ctaLink.Name</a>
+        </div>
+    }
+</div>

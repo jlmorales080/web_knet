@@ -1,0 +1,16 @@
+@using Umbraco.Cms.Core.Models.Blocks
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<BlockGridItem>
+
+@{
+    var content = Model.Content;
+    var title = content.Value<string>("title");
+    var textContent = content.Value<Umbraco.Cms.Core.Strings.IHtmlEncodedString>("content");
+}
+
+<div class="text-group">
+    @if (!string.IsNullOrEmpty(title))
+    {
+        <h3>@title</h3>
+    }
+    @textContent
+</div>

@@ -1,0 +1,12 @@
+@using Umbraco.Cms.Core.Models.Blocks
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<BlockGridItem>
+
+@{
+    var content = Model.Content;
+    var image = content.Value<Umbraco.Cms.Core.Models.MediaWithCrops>("image");
+}
+
+@if (image != null)
+{
+    <img src="@image.Url()" alt="@image.Name" loading="lazy" style="max-width: 100%; height: auto;">
+}
