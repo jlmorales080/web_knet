@@ -25,83 +25,90 @@
     var subtitleStyle = "font-size: 30px; line-height: 1.17; font-weight: 400; color: #fff; text-align: center; margin-bottom: 20px; font-family: 'Exo', sans-serif;";
 }
 
-<div class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module">
-    @if (appearance == "Home")
-    {
-        <section class="ofertas_destacadas bg-deco-ofertas">
-            <div class="wrapper">
-                @if (!string.IsNullOrEmpty(title))
-                {
-                    <div class="title">
-                        <p>@Html.Raw(title)</p>
-                    </div>
-                }
-                
-                @if (!string.IsNullOrEmpty(subtitle))
-                {
-                    <h2 class="subtitle-tarifas" style="@subtitleStyle">@Html.Raw(subtitle)</h2>
-                }
+@{
+    var hasContent = !string.IsNullOrEmpty(title) || !string.IsNullOrEmpty(subtitle) || (description != null && !string.IsNullOrEmpty(description.ToString())) || (heroContent != null && heroContent.Any());
+}
 
-                <div class="inner-cards">
-                    @if (heroContent != null)
+@if (hasContent)
+{
+    <div class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module">
+        @if (appearance == "Home")
+        {
+            <section class="ofertas_destacadas bg-deco-ofertas">
+                <div class="wrapper">
+                    @if (!string.IsNullOrEmpty(title))
                     {
-                        foreach (var item in heroContent)
+                        <div class="title">
+                            <p>@Html.Raw(title)</p>
+                        </div>
+                    }
+                    
+                    @if (!string.IsNullOrEmpty(subtitle))
+                    {
+                        <h2 class="subtitle-tarifas" style="@subtitleStyle">@Html.Raw(subtitle)</h2>
+                    }
+
+                    <div class="inner-cards">
+                        @if (heroContent != null)
                         {
-                            @await Html.PartialAsync("_OfferCard", (BlockGridItem)item, new ViewDataDictionary(ViewData) { { "isLanding", false } })
+                            foreach (var item in heroContent)
+                            {
+                                @await Html.PartialAsync("_OfferCard", (BlockGridItem)item, new ViewDataDictionary(ViewData) { { "isLanding", false } })
+                            }
                         }
+                    </div>
+                </div>
+            </section>
+        }
+        else
+        {
+            <section class="bg-heading-tarifas bg-heading-tarifas" style="margin-bottom: 0 !important; padding: 50px 0 !important;">
+                <div class="wrapper">
+                    @if (!string.IsNullOrEmpty(title))
+                    {
+                        <div class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_inline_rich_text">
+                            <h1 class="title-tarifas">@Html.Raw(title)</h1>
+                        </div>
+                    }
+                    
+                    @* SUBTITLE (Strictly between Title and Description) - FINAL TEMPLATE DESIGN *@
+                    @if (!string.IsNullOrEmpty(subtitle))
+                    {
+                        <div class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_inline_rich_text" data-hs-cos-general-type="widget" data-hs-cos-type="inline_rich_text" data-hs-cos-field="subtitle">
+                            <h2 class="subtitle-tarifas" style="@subtitleStyle">@Html.Raw(subtitle)</h2>
+                        </div>
+                    }
+
+                    @if (description != null)
+                    {
+                        <div class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_inline_rich_text">
+                            @description
+                        </div>
+                    }
+
+                    @if (heroContent != null && heroContent.Any())
+                    {
+                        <div class="columns" style="margin-top: 70px;">
+                            @foreach (var item in heroContent)
+                            {
+                                var colClass = item.ColumnSpan <= 6 ? "half-column" : ""; 
+                                <div class="@colClass">
+                                    @if (item.Content.ContentType.Alias.Contains("Card"))
+                                    {
+                                        <div class="inner-cards">
+                                            @await Html.PartialAsync("_OfferCard", (BlockGridItem)item, new ViewDataDictionary(ViewData) { { "isLanding", true } })
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        @await Html.PartialAsync("blockgrid/Components/" + item.Content.ContentType.Alias, (BlockGridItem)item)
+                                    }
+                                </div>
+                            }
+                        </div>
                     }
                 </div>
-            </div>
-        </section>
-    }
-    else
-    {
-        <section class="bg-heading-tarifas bg-heading-tarifas" style="margin-bottom: 0 !important; padding: 50px 0 !important;">
-            <div class="wrapper">
-                @if (!string.IsNullOrEmpty(title))
-                {
-                    <div class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_inline_rich_text">
-                        <h1 class="title-tarifas">@Html.Raw(title)</h1>
-                    </div>
-                }
-                
-                @* SUBTITLE (Strictly between Title and Description) - FINAL TEMPLATE DESIGN *@
-                @if (!string.IsNullOrEmpty(subtitle))
-                {
-                    <div class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_inline_rich_text" data-hs-cos-general-type="widget" data-hs-cos-type="inline_rich_text" data-hs-cos-field="subtitle">
-                        <h2 class="subtitle-tarifas" style="@subtitleStyle">@Html.Raw(subtitle)</h2>
-                    </div>
-                }
-
-                @if (description != null)
-                {
-                    <div class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_inline_rich_text">
-                        @description
-                    </div>
-                }
-
-                @if (heroContent != null && heroContent.Any())
-                {
-                    <div class="columns" style="margin-top: 70px;">
-                        @foreach (var item in heroContent)
-                        {
-                            var colClass = item.ColumnSpan <= 6 ? "half-column" : ""; 
-                            <div class="@colClass">
-                                @if (item.Content.ContentType.Alias.Contains("Card"))
-                                {
-                                    <div class="inner-cards">
-                                        @await Html.PartialAsync("_OfferCard", (BlockGridItem)item, new ViewDataDictionary(ViewData) { { "isLanding", true } })
-                                    </div>
-                                }
-                                else
-                                {
-                                    @await Html.PartialAsync("blockgrid/Components/" + item.Content.ContentType.Alias, (BlockGridItem)item)
-                                }
-                            </div>
-                        }
-                    </div>
-                }
-            </div>
-        </section>
-    }
-</div>
+            </section>
+        }
+    </div>
+}
