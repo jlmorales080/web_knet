@@ -1,114 +1,159 @@
 @using Umbraco.Cms.Core.Models.Blocks
+@using Umbraco.Cms.Core.Models
+@using Umbraco.Cms.Core.Models.PublishedContent
 @using Umbraco.Cms.Web.Common.PublishedModels
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<BlockListItem>
 
 @{
     var content = Model.Content;
     
-    // Title detection
+    // Properties
     var title = content.Value<string>("title") ?? content.Value<string>("pageTitle") ?? content.Value<string>("titulo");
-    
-    // Subtitle detection
     var subtitle = content.Value<string>("subtitle") ?? content.Value<string>("subTitle") ?? content.Value<string>("subtitulo");
-
-    // Description detection
+    var titlePosition = content.Value<string>("titlePosition") ?? "top";
+    
     var description = content.Value<Umbraco.Cms.Core.Strings.IHtmlEncodedString>("description") 
                     ?? content.Value<Umbraco.Cms.Core.Strings.IHtmlEncodedString>("intro")
                     ?? content.Value<Umbraco.Cms.Core.Strings.IHtmlEncodedString>("richText");
 
-    var appearance = content.Value<string>("appearance") ?? "Landing"; 
-    
-    // Block Grid
-    var heroContent = content.Value<BlockGridModel>("contentGrid") ?? content.Value<BlockGridModel>("heroContent");
+    // Block List (Reverted from Block Grid)
+    var heroContent = content.Value<BlockListModel>("contentGrid") ?? content.Value<BlockListModel>("heroContent");
 
     // Subtitle Styles from Template Inspection (30px, Exo font, etc)
     var subtitleStyle = "font-size: 30px; line-height: 1.17; font-weight: 400; color: #fff; text-align: center; margin-bottom: 20px; font-family: 'Exo', sans-serif;";
-}
 
-@{
-    var hasContent = !string.IsNullOrEmpty(title) || !string.IsNullOrEmpty(subtitle) || (description != null && !string.IsNullOrEmpty(description.ToString())) || (heroContent != null && heroContent.Any());
+    var backgroundImage = content.Value<Umbraco.Cms.Core.Models.PublishedContent.IPublishedContent>("backgroundImage");
+    var hasBgImage = backgroundImage != null;
+
+    var hasTitle = !string.IsNullOrWhiteSpace(title);
+    var hasSubtitle = !string.IsNullOrWhiteSpace(subtitle);
+    
+    // Strip HTML tags and entities to see if there's real text in the description
+    var cleanDescription = description != null ? System.Text.RegularExpressions.Regex.Replace(description.ToString(), "<.*?>", "").Replace("&nbsp;", " ").Trim() : "";
+    var hasDescription = !string.IsNullOrWhiteSpace(cleanDescription);
+    
+    var hasCards = heroContent != null && heroContent.Any();
+    
+    // RULE: To show the section, we need at least one of these: Subtitle, Description, Cards, or a Background Image.
+    var hasContent = hasSubtitle || hasDescription || hasCards || hasBgImage;
 }
 
 @if (hasContent)
 {
+    var isLeft = !string.IsNullOrEmpty(titlePosition) && titlePosition.Equals("left", StringComparison.OrdinalIgnoreCase);
+    
+    // If it has a background image, we use the "Landing/Hero" style. 
+    // Otherwise, we use the "Orange Section" style.
+    // If it has a background image, we use the "Landing/Hero" style. 
+    // Otherwise, we use the "Orange Section" style.
+    // FIX: If isLeft, we MUST include 'ofertas_destacadas' for the title styles to apply, even if it has a bg image.
+    string sectionClass;
+    if (hasBgImage) {
+        sectionClass = isLeft ? "bg-heading-tarifas ofertas_destacadas" : "bg-heading-tarifas";
+    } else {
+        sectionClass = "ofertas_destacadas bg-deco-ofertas";
+    }
+
+    var sectionStyle = hasBgImage 
+        ? $"margin-bottom: 0 !important; padding: 50px 0 !important; background-image: url('{backgroundImage.Url()}'); background-size: cover; background-position: center;" 
+        : "margin-bottom: 0 !important; padding: 50px 0 !important;";
+
     <div class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module">
-        @if (appearance == "Home")
-        {
-            <section class="ofertas_destacadas bg-deco-ofertas">
-                <div class="wrapper">
-                    @if (!string.IsNullOrEmpty(title))
-                    {
-                        <div class="title">
-                            <p>@Html.Raw(title)</p>
-                        </div>
-                    }
+        <section class="@sectionClass" style="@sectionStyle">
+            <div class="wrapper">
+                <div class="@(isLeft ? "flex-layout-left" : "")" style="@(isLeft ? "display: flex; align-items: center; gap: 40px;" : "")">
                     
-                    @if (!string.IsNullOrEmpty(subtitle))
+                    @if (hasTitle)
                     {
-                        <h2 class="subtitle-tarifas" style="@subtitleStyle">@Html.Raw(subtitle)</h2>
+                        if (isLeft)
+                        {
+                            // LEFT (ANY): Div > p (User Requirement: "When title is left... it is not an h1")
+                            <div class="title">
+                                <p>@Html.Raw(title)</p>
+                            </div>
+                        }
+                        else if (hasBgImage)
+                        {
+                            // HERO / BG IMAGE: H1 (Regardless of position, usually H1 for Hero)
+                            <div class="title-container" style="@(isLeft ? "flex: 0 0 350px; text-align: left;" : "text-align: center; margin-bottom: 30px;")">
+                                <h1 class="title-tarifas" style="margin-bottom: 0;">@Html.Raw(title)</h1>
+                            </div>
+                        }
+                        else
+                        {
+                             // CENTERED STANDARD: Div > p (Default fallback)
+                            <div class="title-container" style="text-align: center; margin-bottom: 30px;">
+                                <div class="title" style="margin-bottom: 0;">
+                                    <p>@Html.Raw(title)</p>
+                                </div>
+                            </div>
+                        }
                     }
 
-                    <div class="inner-cards">
-                        @if (heroContent != null)
+                    <div style="flex: 1;">
+                        @if (hasSubtitle)
                         {
-                            foreach (var item in heroContent)
-                            {
-                                @await Html.PartialAsync("_OfferCard", (BlockGridItem)item, new ViewDataDictionary(ViewData) { { "isLanding", false } })
-                            }
+                            <h2 class="subtitle-tarifas" style="@subtitleStyle @(isLeft ? "text-align: left;" : "text-align: center;")">@Html.Raw(subtitle)</h2>
+                        }
+
+                        @if (hasDescription)
+                        {
+                            <div class="description-text" style="margin-bottom: 30px; @(isLeft ? "text-align: left;" : "text-align: center;")">
+                                @description
+                            </div>
+                        }
+
+                        @if (hasCards)
+                        {
+                            <div class="inner-cards" style="display: flex; flex-direction: row; flex-wrap: wrap; justify-content: @(isLeft ? "flex-start" : "center"); gap: 15px;">
+                                @foreach (var item in heroContent)
+                                {
+                                    var itemContent = item.Content;
+                                    
+                                    // Case A: Item is a ProductCard (New setup)
+                                    if (itemContent.ContentType.Alias.Equals("productCard", StringComparison.OrdinalIgnoreCase))
+                                    {
+                                        var cardImage = itemContent.Value<MediaWithCrops>("image");
+                                        var pickedOffers = itemContent.Value<IEnumerable<IPublishedContent>>("cards") 
+                                                       ?? itemContent.Value<IEnumerable<IPublishedContent>>("offercard")
+                                                       ?? Enumerable.Empty<IPublishedContent>();
+
+                                        <div class="product-group" style="display: flex; align-items: stretch; gap: 15px; flex: 0 0 auto;">
+                                            @if (cardImage != null)
+                                            {
+                                                <div class="product-image" style="flex: 0 0 450px;">
+                                                    <img src="@cardImage.Url()" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px;" />
+                                                </div>
+                                            }
+
+                                            @if (pickedOffers != null)
+                                            {
+                                                foreach (var offer in pickedOffers)
+                                                {
+                                                    var offerElement = offer as IPublishedElement;
+                                                    if (offerElement != null)
+                                                    {
+                                                        <div class="card-item" style="flex: 0 0 auto;">
+                                                            @await Html.PartialAsync("_OfferCard", offerElement, new ViewDataDictionary(ViewData) { { "isLanding", hasBgImage } })
+                                                        </div>
+                                                    }
+                                                }
+                                            }
+                                        </div>
+                                    }
+                                    // Case B: Item is directly an OfferCard (Legacy/Manual)
+                                    else if (itemContent.ContentType.Alias.Equals("offerCard", StringComparison.OrdinalIgnoreCase))
+                                    {
+                                        <div class="card-item" style="flex: 0 0 auto;">
+                                            @await Html.PartialAsync("_OfferCard", itemContent, new ViewDataDictionary(ViewData) { { "isLanding", hasBgImage } })
+                                        </div>
+                                    }
+                                }
+                            </div>
                         }
                     </div>
                 </div>
-            </section>
-        }
-        else
-        {
-            <section class="bg-heading-tarifas bg-heading-tarifas" style="margin-bottom: 0 !important; padding: 50px 0 !important;">
-                <div class="wrapper">
-                    @if (!string.IsNullOrEmpty(title))
-                    {
-                        <div class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_inline_rich_text">
-                            <h1 class="title-tarifas">@Html.Raw(title)</h1>
-                        </div>
-                    }
-                    
-                    @* SUBTITLE (Strictly between Title and Description) - FINAL TEMPLATE DESIGN *@
-                    @if (!string.IsNullOrEmpty(subtitle))
-                    {
-                        <div class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_inline_rich_text" data-hs-cos-general-type="widget" data-hs-cos-type="inline_rich_text" data-hs-cos-field="subtitle">
-                            <h2 class="subtitle-tarifas" style="@subtitleStyle">@Html.Raw(subtitle)</h2>
-                        </div>
-                    }
-
-                    @if (description != null)
-                    {
-                        <div class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_inline_rich_text">
-                            @description
-                        </div>
-                    }
-
-                    @if (heroContent != null && heroContent.Any())
-                    {
-                        <div class="columns" style="margin-top: 70px;">
-                            @foreach (var item in heroContent)
-                            {
-                                var colClass = item.ColumnSpan <= 6 ? "half-column" : ""; 
-                                <div class="@colClass">
-                                    @if (item.Content.ContentType.Alias.Contains("Card"))
-                                    {
-                                        <div class="inner-cards">
-                                            @await Html.PartialAsync("_OfferCard", (BlockGridItem)item, new ViewDataDictionary(ViewData) { { "isLanding", true } })
-                                        </div>
-                                    }
-                                    else
-                                    {
-                                        @await Html.PartialAsync("blockgrid/Components/" + item.Content.ContentType.Alias, (BlockGridItem)item)
-                                    }
-                                </div>
-                            }
-                        </div>
-                    }
-                </div>
-            </section>
-        }
+            </div>
+        </section>
     </div>
 }

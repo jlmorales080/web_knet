@@ -1,13 +1,40 @@
-@using Umbraco.Cms.Core.Models.Blocks
-@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<BlockGridItem>
+@using System.Linq
+@inherits UmbracoViewPage<IPublishedElement>
 
 @{
-    var card = Model.Content;
+    var card = Model;
     
     // Properties fallbacks
-    var price = card.Value<string>("price") ?? card.Value<string>("precio");
+    var rawPrice = card.Value<string>("price") ?? card.Value<string>("precio");
     var priceDecimal = card.Value<string>("priceDecimal") ?? card.Value<string>("decimales");
-    var period = card.Value<string>("period") ?? card.Value<string>("periodo");
+    var period = card.Value<string>("period") ?? card.Value<string>("periodo") ?? "IVA incluido"; // Default to IVA incluido
+    
+    // Automatic Price Splitting Logic
+    // If we have a price but no explicit decimal part, try to split it
+    var displayedPrice = rawPrice;
+    
+    if (!string.IsNullOrEmpty(rawPrice) && string.IsNullOrEmpty(priceDecimal))
+    {
+        // Remove currency symbol for parsing if present
+        var cleanPrice = rawPrice.Replace("€", "").Trim();
+        
+        // Find separator
+        char? separator = null;
+        if (cleanPrice.Contains(',')) separator = ',';
+        else if (cleanPrice.Contains('.')) separator = '.';
+        
+        if (separator.HasValue)
+        {
+            var parts = cleanPrice.Split(separator.Value);
+            if (parts.Length >= 2)
+            {
+                displayedPrice = parts[0];
+                // Format decimal part: '90 €
+                priceDecimal = $"'{parts[1]} €";
+            }
+        }
+    }
+    
     var oldPrice = card.Value<string>("oldPrice") ?? card.Value<string>("precioAnterior");
     var cardTitle = card.Value<string>("title") ?? card.Value<string>("cardTitle") ?? card.Value<string>("titulo");
     
@@ -15,9 +42,39 @@
                 ?? card.Value<Umbraco.Cms.Core.Strings.IHtmlEncodedString>("cardFeatures") 
                 ?? card.Value<Umbraco.Cms.Core.Strings.IHtmlEncodedString>("caracteristicas");
     
-    var ctaLink = card.Value<Umbraco.Cms.Core.Models.Link>("ctaLink") 
-               ?? card.Value<Umbraco.Cms.Core.Models.Link>("ctaButton") 
-               ?? card.Value<Umbraco.Cms.Core.Models.Link>("boton");
+    // CTA Link - Block List containing navigationIconLink items
+    Umbraco.Cms.Core.Models.Link ctaLink = null;
+    string ctaIcon = null;
+    
+    // Get the Block List - property is called 'ctaLink'
+    var ctaBlockList = card.Value<Umbraco.Cms.Core.Models.Blocks.BlockListModel>("ctaLink");
+    
+    if (ctaBlockList != null && ctaBlockList.Any())
+    {
+        var firstBlock = ctaBlockList.FirstOrDefault();
+        
+        if (firstBlock?.Content != null)
+        {
+            var content = firstBlock.Content;
+            
+            // Try getting 'link' property raw value
+            // Try to get the link
+            var linkData = content.Value<IEnumerable<Umbraco.Cms.Core.Models.Link>>("link")?.FirstOrDefault(); 
+            
+            if (linkData == null) 
+            {
+                 // Try getting as single item
+                 var singleLink = content.Value<Umbraco.Cms.Core.Models.Link>("link");
+                 if (singleLink != null) linkData = singleLink;
+            }
+
+            if (linkData != null)
+            {
+                ctaLink = linkData;
+                ctaIcon = content.Value<string>("icon");
+            }
+        }
+    }
     
     var isLanding = ViewData["isLanding"] as bool? ?? true;
     
@@ -30,7 +87,7 @@
         <div class="card-precio">
             <div class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_inline_rich_text">
                 <div class="precio">
-                    @price
+                    @displayedPrice
                     <div style="display: flex; flex-direction: column; justify-content: space-between;">
                         <sup>@priceDecimal</sup> 
                         @* Forced black color for 'IVA incluido' / period *@
@@ -60,7 +117,13 @@
     @if (ctaLink != null)
     {
         <div class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_inline_rich_text">
-            <a href="@ctaLink.Url" class="btn-blue-icon" target="@ctaLink.Target">@ctaLink.Name</a>
+            <a href="@ctaLink.Url" class="btn-blue-icon" target="@ctaLink.Target">
+                @if (!string.IsNullOrEmpty(ctaIcon))
+                {
+                    <i class="@ctaIcon"></i>
+                }
+                @ctaLink.Name
+            </a>
         </div>
     }
 </div>

@@ -1,1 +1,591 @@
-{"contentType":"homePage","name":"Home","createDate":"2026-01-16T23:34:53.433Z","updateDate":"2026-01-17T00:03:33.987Z","route":{"path":"/","queryString":null,"startItem":{"id":"22dd0dae-883e-4470-8e7c-3d767a78acda","path":"home"}},"id":"22dd0dae-883e-4470-8e7c-3d767a78acda","properties":{"pageTitle":"Fibra y m\u00F3vil en la Rioja | Knet","metaDescription":"Ofrecemos servicios de fibra y m\u00F3vil en La Rioja. 5 puntos de venta repartidos entre Logro\u00F1o, N\u00E1jera, Sto Domingo y Villamediana de Iregua","contentBlocks":{"items":[{"content":{"contentType":"heroBlock","id":"f24b06b6-8bdc-4900-81c1-dd16f70d5202","properties":{"title":"En \u003Cspan\u003EKnet\u003C/span\u003E trabajamos por y para ti","description":{"markup":"\u003Cul class=\u0022disc-list\u0022 style=\u0022box-sizing: border-box; margin: 0px 0px 30px; padding: 0px 0px 0px 30px; list-style: disc; border: 0px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-variant-alternates: inherit; font-variant-position: inherit; font-variant-emoji: inherit; font-weight: 400; font-stretch: inherit; font-size: 12px; line-height: inherit; font-family: Exo; font-optical-sizing: inherit; font-size-adjust: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; font-language-override: inherit; vertical-align: baseline; color: rgb(0, 0, 0); letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;\u0022\u003E\u003Cli\u003E\u003Cp\u003E\u003Cspan style=\u0022box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: 14px; line-height: inherit; font-family: inherit; font-optical-sizing: inherit; font-size-adjust: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; font-language-override: inherit; margin: 0px; padding: 0px; vertical-align: baseline;\u0022\u003ENuestro objetivo es ser\u003C/span\u003E\u003Cstrong style=\u0022box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: 700; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; font-optical-sizing: inherit; font-size-adjust: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; font-language-override: inherit; margin: 0px; padding: 0px; vertical-align: baseline;\u0022\u003E\u003Cspan style=\u0022box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: 14px; line-height: inherit; font-family: inherit; font-optical-sizing: inherit; font-size-adjust: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; font-language-override: inherit; margin: 0px; padding: 0px; vertical-align: baseline;\u0022\u003E tu operador riojano de confianza\u003C/span\u003E\u003C/strong\u003E\u003C/p\u003E\u003C/li\u003E\u003Cli\u003E\u003Cp\u003E\u003Cspan style=\u0022box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: 14px; line-height: inherit; font-family: inherit; font-optical-sizing: inherit; font-size-adjust: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; font-language-override: inherit; margin: 0px; padding: 0px; vertical-align: baseline;\u0022\u003ENos esforzamos d\u00EDa a d\u00EDa para ofrecerte \u003C/span\u003E\u003Cstrong style=\u0022box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: 700; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; font-optical-sizing: inherit; font-size-adjust: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; font-language-override: inherit; margin: 0px; padding: 0px; vertical-align: baseline;\u0022\u003E\u003Cspan style=\u0022box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: 14px; line-height: inherit; font-family: inherit; font-optical-sizing: inherit; font-size-adjust: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; font-language-override: inherit; margin: 0px; padding: 0px; vertical-align: baseline;\u0022\u003Eel mejor servicio al mejor precio\u003C/span\u003E\u003C/strong\u003E\u003Cspan style=\u0022box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: 14px; line-height: inherit; font-family: inherit; font-optical-sizing: inherit; font-size-adjust: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; font-language-override: inherit; margin: 0px; padding: 0px; vertical-align: baseline;\u0022\u003E.\u003C/span\u003E\u003C/p\u003E\u003C/li\u003E\u003Cli\u003E\u003Cp\u003E\u003Cspan style=\u0022box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: 14px; line-height: inherit; font-family: inherit; font-optical-sizing: inherit; font-size-adjust: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; font-language-override: inherit; margin: 0px; padding: 0px; vertical-align: baseline;\u0022\u003EContamos con el \u003C/span\u003E\u003Cstrong style=\u0022box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: 700; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; font-optical-sizing: inherit; font-size-adjust: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; font-language-override: inherit; margin: 0px; padding: 0px; vertical-align: baseline;\u0022\u003E\u003Cspan style=\u0022box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: 14px; line-height: inherit; font-family: inherit; font-optical-sizing: inherit; font-size-adjust: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; font-language-override: inherit; margin: 0px; padding: 0px; vertical-align: baseline;\u0022\u003Emejor Servicio de Atenci\u00F3n al Cliente\u003C/span\u003E\u003C/strong\u003E\u003Cspan style=\u0022box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: 14px; line-height: inherit; font-family: inherit; font-optical-sizing: inherit; font-size-adjust: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; font-language-override: inherit; margin: 0px; padding: 0px; vertical-align: baseline;\u0022\u003E, siempre preparado para \u003C/span\u003E\u003Cstrong style=\u0022box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: 700; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; font-optical-sizing: inherit; font-size-adjust: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; font-language-override: inherit; margin: 0px; padding: 0px; vertical-align: baseline;\u0022\u003E\u003Cspan style=\u0022box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: 14px; line-height: inherit; font-family: inherit; font-optical-sizing: inherit; font-size-adjust: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; font-language-override: inherit; margin: 0px; padding: 0px; vertical-align: baseline;\u0022\u003Edar respuesta a tus consultas\u003C/span\u003E\u003C/strong\u003E\u003Cspan style=\u0022box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: 14px; line-height: inherit; font-family: inherit; font-optical-sizing: inherit; font-size-adjust: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; font-language-override: inherit; margin: 0px; padding: 0px; vertical-align: baseline;\u0022\u003E y estamos orgullosos de decir, que \u003C/span\u003E\u003Cstrong style=\u0022box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: 700; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; font-optical-sizing: inherit; font-size-adjust: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; font-language-override: inherit; margin: 0px; padding: 0px; vertical-align: baseline;\u0022\u003E\u003Cspan style=\u0022box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: 14px; line-height: inherit; font-family: inherit; font-optical-sizing: inherit; font-size-adjust: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; font-language-override: inherit; margin: 0px; padding: 0px; vertical-align: baseline;\u0022\u003Ete atendemos desde aqu\u00ED, desde La Rioja\u003C/span\u003E\u003C/strong\u003E\u003Cspan style=\u0022box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: 14px; line-height: inherit; font-family: inherit; font-optical-sizing: inherit; font-size-adjust: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; font-language-override: inherit; margin: 0px; padding: 0px; vertical-align: baseline;\u0022\u003E.\u003C/span\u003E\u003C/p\u003E\u003C/li\u003E\u003Cli\u003E\u003Cp\u003E\u003Cspan style=\u0022box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: 14px; line-height: inherit; font-family: inherit; font-optical-sizing: inherit; font-size-adjust: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; font-language-override: inherit; margin: 0px; padding: 0px; vertical-align: baseline;\u0022\u003EY adem\u00E1s, contamos con \u003C/span\u003E\u003Cstrong style=\u0022box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: 700; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; font-optical-sizing: inherit; font-size-adjust: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; font-language-override: inherit; margin: 0px; padding: 0px; vertical-align: baseline;\u0022\u003E\u003Cspan style=\u0022box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: 14px; line-height: inherit; font-family: inherit; font-optical-sizing: inherit; font-size-adjust: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; font-language-override: inherit; margin: 0px; padding: 0px; vertical-align: baseline;\u0022\u003E6 puntos de venta repartidos entre Logro\u00F1o, N\u00E1jera, Santo Domingo de la Calzada, Villamediana de Iregua y Lardero\u003C/span\u003E\u003C/strong\u003E\u003Cspan style=\u0022box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: 14px; line-height: inherit; font-family: inherit; font-optical-sizing: inherit; font-size-adjust: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; font-language-override: inherit; margin: 0px; padding: 0px; vertical-align: baseline;\u0022\u003E donde encontrar\u00E1s a nuestro equipo de agentes listos para brindarte la mejor atenci\u00F3n.\u003C/span\u003E\u003C/p\u003E\u003C/li\u003E\u003C/ul\u003E\u003Cp\u003E\u003C/p\u003E","blocks":[]},"image":[{"focalPoint":null,"crops":[],"id":"85911152-5f4d-4440-bf83-96cf4f0920dc","name":"prueba-web-2.webp","mediaType":"Image","url":"/media/1xnnomze/prueba-web-2.webp","extension":"webp","width":640,"height":640,"bytes":27834,"properties":{}}],"ctaButton":[{"url":"/contrata-fibra-movil-desde-casa","queryString":null,"title":"\u00A1Quiero unirme!","target":null,"destinationId":null,"destinationType":null,"route":null,"linkType":"External"}]}},"settings":null},{"content":{"contentType":"featuredOffersBlock","id":"3dceaffb-179b-4f0e-a9a6-0a3e816abb77","properties":{"title":"Ofertas destacadas","cards":{"items":[{"content":{"contentType":"offerCard","id":"daa3ea32-d643-47aa-8a78-a9c21c268725","properties":{"title":"Tarifa Zurracapote","price":"19","priceDecimal":"\u002790\u20AC","period":"IVA Incluido","oldPrice":"antes 25\u20AC","features":{"markup":"\u003Cul class=\u0022disc-list\u0022 style=\u0022box-sizing: border-box; margin: 0px; padding: 0px 0px 0px 30px; list-style: disc; border: 0px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-variant-alternates: inherit; font-variant-position: inherit; font-variant-emoji: inherit; font-weight: 400; font-stretch: inherit; font-size: 15px; line-height: 24px; font-family: Exo, sans-serif; font-optical-sizing: inherit; font-size-adjust: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; font-language-override: inherit; vertical-align: baseline; color: rgb(0, 0, 0); letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;\u0022\u003E\u003Cli\u003E\u003Cp\u003EFibra \u00F3ptica \u003Cstrong style=\u0022box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: 700; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; font-optical-sizing: inherit; font-size-adjust: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; font-language-override: inherit; margin: 0px; padding: 0px; vertical-align: baseline;\u0022\u003E1Gb\u003C/strong\u003E\u003C/p\u003E\u003C/li\u003E\u003Cli\u003E\u003Cp\u003EInstalaci\u00F3n incluida\u003C/p\u003E\u003C/li\u003E\u003Cli\u003E\u003Cp\u003E\u003Cstrong style=\u0022box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: 700; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; font-optical-sizing: inherit; font-size-adjust: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; font-language-override: inherit; margin: 0px; padding: 0px; vertical-align: baseline;\u0022\u003EPrecio para SIEMPRE\u003C/strong\u003E\u003C/p\u003E\u003C/li\u003E\u003C/ul\u003E\u003Cp\u003E\u003C/p\u003E","blocks":[]},"ctaLink":[{"url":"/contrata-fibra-movil-desde-casa","queryString":null,"title":"\u00A1Contrata ahora!","target":null,"destinationId":null,"destinationType":null,"route":null,"linkType":"External"}]}},"settings":null},{"content":{"contentType":"offerCard","id":"12242f9b-c131-4c34-a55d-cc4dbb5cd241","properties":{"title":"TARIFA TINTO PREMIUM","price":"34","priceDecimal":"\u002790 \u20AC","period":"IVA incluido","oldPrice":"antes 39\u20AC","features":{"markup":"\u003Cul class=\u0022disc-list\u0022 style=\u0022box-sizing: border-box; margin: 0px; padding: 0px 0px 0px 30px; list-style: disc; border: 0px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-variant-alternates: inherit; font-variant-position: inherit; font-variant-emoji: inherit; font-weight: 400; font-stretch: inherit; font-size: 15px; line-height: 24px; font-family: Exo, sans-serif; font-optical-sizing: inherit; font-size-adjust: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; font-language-override: inherit; vertical-align: baseline; color: rgb(0, 0, 0); letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;\u0022\u003E\u003Cli\u003E\u003Cp\u003EFibra \u00F3ptica \u003Cstrong style=\u0022box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: 700; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; font-optical-sizing: inherit; font-size-adjust: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; font-language-override: inherit; margin: 0px; padding: 0px; vertical-align: baseline;\u0022\u003E1Gb\u003C/strong\u003E\u003C/p\u003E\u003C/li\u003E\u003Cli\u003E\u003Cp\u003E\u003Cstrong style=\u0022box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: 700; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; font-optical-sizing: inherit; font-size-adjust: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; font-language-override: inherit; margin: 0px; padding: 0px; vertical-align: baseline;\u0022\u003E2 l\u00EDneas m\u00F3viles\u003C/strong\u003E\u003C/p\u003E\u003C/li\u003E\u003Cli\u003E\u003Cp\u003EInstalaci\u00F3n incluida\u003C/p\u003E\u003C/li\u003E\u003C/ul\u003E\u003Cp\u003E\u003C/p\u003E","blocks":[]},"ctaLink":[{"url":"/contrata-fibra-movil-desde-casa","queryString":null,"title":"\u00A1Contrata ahora!","target":null,"destinationId":null,"destinationType":null,"route":null,"linkType":"External"}]}},"settings":null}]}}},"settings":null},{"content":{"contentType":"iconsModuleBlock","id":"849ccff8-318c-44db-a6e4-c0cd6dd4b6b0","properties":{"title":"Nuestros servicios","items":{"items":[{"content":{"contentType":"iconItem","id":"8c82c35e-4df2-45ec-bbec-6fd3e6fc34b8","properties":{"icon":[{"focalPoint":null,"crops":[],"id":"d591ed8b-cf17-4ed4-95c8-a777b30703ad","name":"movil.svg","mediaType":"umbracoMediaVectorGraphics","url":"/media/pfidgnym/movil.svg","extension":"svg","width":null,"height":null,"bytes":1746,"properties":{}}],"title":"M\u00F3vil","description":"Con\u00E9ctate donde quieras con nuestra red m\u00F3vil de alta velocidad."}},"settings":null},{"content":{"contentType":"iconItem","id":"337c0164-01e3-478b-97af-9907d0365f22","properties":{"icon":[{"focalPoint":null,"crops":[],"id":"9ea66b36-2e9c-4472-9832-59d2aeb72c99","name":"router.svg","mediaType":"umbracoMediaVectorGraphics","url":"/media/ytlai5eh/router.svg","extension":"svg","width":null,"height":null,"bytes":6499,"properties":{}}],"title":"Fibra","description":"Navega sin l\u00EDmites con nuestra fibra \u00F3ptica ultrarr\u00E1pida."}},"settings":null},{"content":{"contentType":"iconItem","id":"a8927815-c7a9-4789-b1b2-e95668523045","properties":{"icon":[{"focalPoint":null,"crops":[],"id":"07e51fdf-25ab-49af-a865-e749ad9783a5","name":"fibra-movil.svg","mediaType":"umbracoMediaVectorGraphics","url":"/media/fwrepznq/fibra-movil.svg","extension":"svg","width":null,"height":null,"bytes":4256,"properties":{}}],"title":"FIBRA \u002B M\u00D3VIL","description":"La combinaci\u00F3n perfecta: fibra \u00F3ptica y m\u00F3vil, todo en uno para tu comodidad."}},"settings":null},{"content":{"contentType":"iconItem","id":"38e1faab-2631-424c-b6a8-35b82d9d93be","properties":{"icon":[{"focalPoint":null,"crops":[],"id":"37ee44db-2ce2-42c5-9845-6842ad03aab7","name":"tv.svg","mediaType":"umbracoMediaVectorGraphics","url":"/media/fh2fzvpz/tv.svg","extension":"svg","width":null,"height":null,"bytes":1949,"properties":{}}],"title":"TELEVISI\u00D3N","description":"Entretenimiento ilimitado que te transporta a una experiencia televisiva incomparable."}},"settings":null}]},"backgroundColor":"#fad6cb"}},"settings":null},{"content":{"contentType":"contactSectionBlock","id":"bd899636-2347-4d90-8869-3adfc5c5a6be","properties":{"title":"Contacta con \u003Cspan\u003EKnet\u003C/span\u003E","description":{"markup":"\u003Cp\u003E\u00BFTienes alguna duda? \u00A1No te preocupes! \u003C/p\u003E\u003Cp\u003EEl mejor equipo y el m\u00E1s Riojano est\u00E1 listo para responder a todas tus dudas y solucionar cualquier tipo de incidencia. \u003C/p\u003E\u003Cp\u003ENo dudes en contactarnos a trav\u00E9s del siguiente formulario o mediante nuestros datos de contacto.\u003C/p\u003E","blocks":[]},"ctaButton":[{"url":"/servicio-de-atencion-al-cliente-de-knet","queryString":null,"title":"Contactar","target":null,"destinationId":null,"destinationType":null,"route":null,"linkType":"External"}],"sections":{"items":[{"content":{"contentType":"contactInfoSection","id":"da0060da-ba51-4405-b3f9-b3475fb77975","properties":{"sectionTitle":"Servicio de atenci\u00F3n al cliente","items":{"items":[{"content":{"contentType":"contactInfoItem","id":"90ebbcea-9613-4c19-b356-e0e5eb4c7bf7","properties":{"icon":[{"focalPoint":null,"crops":[],"id":"bb1a2add-6373-43e9-b5c9-a71a71930d44","name":"icon-phone.svg","mediaType":"umbracoMediaVectorGraphics","url":"/media/f4llqwli/icon-phone.svg","extension":"svg","width":null,"height":null,"bytes":3317,"properties":{}}],"text":"Tel\u00E9fono de atenci\u00F3n al cliente:  941 51 91 51","link":"tel:941 51 91 51"}},"settings":null},{"content":{"contentType":"contactInfoItem","id":"29463c6b-40a2-4081-b0de-2525c735cf50","properties":{"icon":[{"focalPoint":null,"crops":[],"id":"84d864cf-b84a-4504-bd9b-1ae7d7bb0c12","name":"icon-email.svg","mediaType":"umbracoMediaVectorGraphics","url":"/media/hxmhuzsr/icon-email.svg","extension":"svg","width":null,"height":null,"bytes":3398,"properties":{}}],"text":"sac@knet.es","link":"mailto:sac@knet.es"}},"settings":null}]}}},"settings":null},{"content":{"contentType":"contactInfoSection","id":"19d9c2a7-fe9f-4e97-96b8-9bae028db751","properties":{"sectionTitle":"Contacto comercial para las tiendas","items":{"items":[{"content":{"contentType":"contactInfoItem","id":"bb1c0266-0937-4c76-aa14-becad94d4340","properties":{"icon":[{"focalPoint":null,"crops":[],"id":"bb1a2add-6373-43e9-b5c9-a71a71930d44","name":"icon-phone.svg","mediaType":"umbracoMediaVectorGraphics","url":"/media/f4llqwli/icon-phone.svg","extension":"svg","width":null,"height":null,"bytes":3317,"properties":{}}],"text":"941 54 40 80","link":"tel:941 54 40 80"}},"settings":null},{"content":{"contentType":"contactInfoItem","id":"72b9e0f9-bc9b-48ff-a071-e7e779c10d33","properties":{"icon":[{"focalPoint":null,"crops":[],"id":"84d864cf-b84a-4504-bd9b-1ae7d7bb0c12","name":"icon-email.svg","mediaType":"umbracoMediaVectorGraphics","url":"/media/hxmhuzsr/icon-email.svg","extension":"svg","width":null,"height":null,"bytes":3398,"properties":{}}],"text":"web@knet.es","link":"mailto:web@knet.es"}},"settings":null}]}}},"settings":null},{"content":{"contentType":"contactInfoSection","id":"4dab6e50-a92b-4a19-a8ab-6af1b7b68414","properties":{"sectionTitle":"Puntos de venta","items":{"items":[{"content":{"contentType":"contactInfoItem","id":"37799df4-0fef-4e2e-b89f-9de7730f55c5","properties":{"icon":[{"focalPoint":null,"crops":[],"id":"04988e2b-1de7-4bee-9305-3fec19416343","name":"icon-location.svg","mediaType":"umbracoMediaVectorGraphics","url":"/media/1ezdvzx2/icon-location.svg","extension":"svg","width":null,"height":null,"bytes":1861,"properties":{}}],"text":"Vara de Rey 7, Logro\u00F1o","link":null}},"settings":null},{"content":{"contentType":"contactInfoItem","id":"e22a3ddc-0b70-4416-ba67-f7e684de6048","properties":{"icon":[{"focalPoint":null,"crops":[],"id":"04988e2b-1de7-4bee-9305-3fec19416343","name":"icon-location.svg","mediaType":"umbracoMediaVectorGraphics","url":"/media/1ezdvzx2/icon-location.svg","extension":"svg","width":null,"height":null,"bytes":1861,"properties":{}}],"text":"Avda de la Paz 76, Logro\u00F1o","link":null}},"settings":null},{"content":{"contentType":"contactInfoItem","id":"1791cbc4-d3ac-4fc6-9765-41f13f0cb194","properties":{"icon":[{"focalPoint":null,"crops":[],"id":"04988e2b-1de7-4bee-9305-3fec19416343","name":"icon-location.svg","mediaType":"umbracoMediaVectorGraphics","url":"/media/1ezdvzx2/icon-location.svg","extension":"svg","width":null,"height":null,"bytes":1861,"properties":{}}],"text":"San Roque 5, Santo Domingo de la Calzada","link":null}},"settings":null},{"content":{"contentType":"contactInfoItem","id":"af2a31f9-767f-40a1-a3a3-b32c4e2bb85d","properties":{"icon":[{"focalPoint":null,"crops":[],"id":"04988e2b-1de7-4bee-9305-3fec19416343","name":"icon-location.svg","mediaType":"umbracoMediaVectorGraphics","url":"/media/1ezdvzx2/icon-location.svg","extension":"svg","width":null,"height":null,"bytes":1861,"properties":{}}],"text":"Plaza San Francisco 3, N\u00E1jera","link":null}},"settings":null},{"content":{"contentType":"contactInfoItem","id":"d8c551e6-0b3b-4567-a955-ed70ef02de26","properties":{"icon":[{"focalPoint":null,"crops":[],"id":"04988e2b-1de7-4bee-9305-3fec19416343","name":"icon-location.svg","mediaType":"umbracoMediaVectorGraphics","url":"/media/1ezdvzx2/icon-location.svg","extension":"svg","width":null,"height":null,"bytes":1861,"properties":{}}],"text":"Anastasio Mateo 10, Villamediana de Iregua","link":null}},"settings":null},{"content":{"contentType":"contactInfoItem","id":"fa4df01f-d1a7-4a7f-becd-6e6f81d4131f","properties":{"icon":[{"focalPoint":null,"crops":[],"id":"04988e2b-1de7-4bee-9305-3fec19416343","name":"icon-location.svg","mediaType":"umbracoMediaVectorGraphics","url":"/media/1ezdvzx2/icon-location.svg","extension":"svg","width":null,"height":null,"bytes":1861,"properties":{}}],"text":"Gonzalez Gallarza 62, Lardero","link":null}},"settings":null}]}}},"settings":null}]}}},"settings":null}]}},"cultures":{}}
+{
+    "contentType": "homePage",
+    "template": "HomePage",
+    "name": "Home",
+    "createDate": "2026-01-16T23:34:53.433Z",
+    "updateDate": "2026-01-17T00:03:33.987Z",
+    "route": {
+        "path": "/",
+        "queryString": null,
+        "startItem": {
+            "id": "22dd0dae-883e-4470-8e7c-3d767a78acda",
+            "path": "home"
+        }
+    },
+    "id": "22dd0dae-883e-4470-8e7c-3d767a78acda",
+    "properties": {
+        "pageTitle": "Fibra y m\u00F3vil en la Rioja | Knet",
+        "metaDescription": "Ofrecemos servicios de fibra y m\u00F3vil en La Rioja. 5 puntos de venta repartidos entre Logro\u00F1o, N\u00E1jera, Sto Domingo y Villamediana de Iregua",
+        "contentBlocks": {
+            "items": [
+                {
+                    "content": {
+                        "contentType": "heroBlock",
+                        "id": "f24b06b6-8bdc-4900-81c1-dd16f70d5202",
+                        "properties": {
+                            "title": "En \u003Cspan\u003EKnet\u003C/span\u003E trabajamos por y para ti",
+                            "description": {
+                                "markup": "\u003Cul class=\u0022disc-list\u0022 style=\u0022box-sizing: border-box; margin: 0px 0px 30px; padding: 0px 0px 0px 30px; list-style: disc; border: 0px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-variant-alternates: inherit; font-variant-position: inherit; font-variant-emoji: inherit; font-weight: 400; font-stretch: inherit; font-size: 12px; line-height: inherit; font-family: Exo; font-optical-sizing: inherit; font-size-adjust: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; font-language-override: inherit; vertical-align: baseline; color: rgb(0, 0, 0); letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;\u0022\u003E\u003Cli\u003E\u003Cp\u003E\u003Cspan style=\u0022box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: 14px; line-height: inherit; font-family: inherit; font-optical-sizing: inherit; font-size-adjust: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; font-language-override: inherit; margin: 0px; padding: 0px; vertical-align: baseline;\u0022\u003ENuestro objetivo es ser\u003C/span\u003E\u003Cstrong style=\u0022box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: 700; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; font-optical-sizing: inherit; font-size-adjust: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; font-language-override: inherit; margin: 0px; padding: 0px; vertical-align: baseline;\u0022\u003E\u003Cspan style=\u0022box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: 14px; line-height: inherit; font-family: inherit; font-optical-sizing: inherit; font-size-adjust: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; font-language-override: inherit; margin: 0px; padding: 0px; vertical-align: baseline;\u0022\u003E tu operador riojano de confianza\u003C/span\u003E\u003C/strong\u003E\u003C/p\u003E\u003C/li\u003E\u003Cli\u003E\u003Cp\u003E\u003Cspan style=\u0022box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: 14px; line-height: inherit; font-family: inherit; font-optical-sizing: inherit; font-size-adjust: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; font-language-override: inherit; margin: 0px; padding: 0px; vertical-align: baseline;\u0022\u003ENos esforzamos d\u00EDa a d\u00EDa para ofrecerte \u003C/span\u003E\u003Cstrong style=\u0022box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: 700; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; font-optical-sizing: inherit; font-size-adjust: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; font-language-override: inherit; margin: 0px; padding: 0px; vertical-align: baseline;\u0022\u003E\u003Cspan style=\u0022box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: 14px; line-height: inherit; font-family: inherit; font-optical-sizing: inherit; font-size-adjust: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; font-language-override: inherit; margin: 0px; padding: 0px; vertical-align: baseline;\u0022\u003Eel mejor servicio al mejor precio\u003C/span\u003E\u003C/strong\u003E\u003Cspan style=\u0022box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: 14px; line-height: inherit; font-family: inherit; font-optical-sizing: inherit; font-size-adjust: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; font-language-override: inherit; margin: 0px; padding: 0px; vertical-align: baseline;\u0022\u003E.\u003C/span\u003E\u003C/p\u003E\u003C/li\u003E\u003Cli\u003E\u003Cp\u003E\u003Cspan style=\u0022box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: 14px; line-height: inherit; font-family: inherit; font-optical-sizing: inherit; font-size-adjust: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; font-language-override: inherit; margin: 0px; padding: 0px; vertical-align: baseline;\u0022\u003EContamos con el \u003C/span\u003E\u003Cstrong style=\u0022box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: 700; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; font-optical-sizing: inherit; font-size-adjust: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; font-language-override: inherit; margin: 0px; padding: 0px; vertical-align: baseline;\u0022\u003E\u003Cspan style=\u0022box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: 14px; line-height: inherit; font-family: inherit; font-optical-sizing: inherit; font-size-adjust: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; font-language-override: inherit; margin: 0px; padding: 0px; vertical-align: baseline;\u0022\u003Emejor Servicio de Atenci\u00F3n al Cliente\u003C/span\u003E\u003C/strong\u003E\u003Cspan style=\u0022box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: 14px; line-height: inherit; font-family: inherit; font-optical-sizing: inherit; font-size-adjust: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; font-language-override: inherit; margin: 0px; padding: 0px; vertical-align: baseline;\u0022\u003E, siempre preparado para \u003C/span\u003E\u003Cstrong style=\u0022box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: 700; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; font-optical-sizing: inherit; font-size-adjust: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; font-language-override: inherit; margin: 0px; padding: 0px; vertical-align: baseline;\u0022\u003E\u003Cspan style=\u0022box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: 14px; line-height: inherit; font-family: inherit; font-optical-sizing: inherit; font-size-adjust: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; font-language-override: inherit; margin: 0px; padding: 0px; vertical-align: baseline;\u0022\u003Edar respuesta a tus consultas\u003C/span\u003E\u003C/strong\u003E\u003Cspan style=\u0022box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: 14px; line-height: inherit; font-family: inherit; font-optical-sizing: inherit; font-size-adjust: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; font-language-override: inherit; margin: 0px; padding: 0px; vertical-align: baseline;\u0022\u003E y estamos orgullosos de decir, que \u003C/span\u003E\u003Cstrong style=\u0022box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: 700; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; font-optical-sizing: inherit; font-size-adjust: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; font-language-override: inherit; margin: 0px; padding: 0px; vertical-align: baseline;\u0022\u003E\u003Cspan style=\u0022box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: 14px; line-height: inherit; font-family: inherit; font-optical-sizing: inherit; font-size-adjust: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; font-language-override: inherit; margin: 0px; padding: 0px; vertical-align: baseline;\u0022\u003Ete atendemos desde aqu\u00ED, desde La Rioja\u003C/span\u003E\u003C/strong\u003E\u003Cspan style=\u0022box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: 14px; line-height: inherit; font-family: inherit; font-optical-sizing: inherit; font-size-adjust: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; font-language-override: inherit; margin: 0px; padding: 0px; vertical-align: baseline;\u0022\u003E.\u003C/span\u003E\u003C/p\u003E\u003C/li\u003E\u003Cli\u003E\u003Cp\u003E\u003Cspan style=\u0022box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: 14px; line-height: inherit; font-family: inherit; font-optical-sizing: inherit; font-size-adjust: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; font-language-override: inherit; margin: 0px; padding: 0px; vertical-align: baseline;\u0022\u003EY adem\u00E1s, contamos con \u003C/span\u003E\u003Cstrong style=\u0022box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: 700; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; font-optical-sizing: inherit; font-size-adjust: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; font-language-override: inherit; margin: 0px; padding: 0px; vertical-align: baseline;\u0022\u003E\u003Cspan style=\u0022box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: 14px; line-height: inherit; font-family: inherit; font-optical-sizing: inherit; font-size-adjust: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; font-language-override: inherit; margin: 0px; padding: 0px; vertical-align: baseline;\u0022\u003E6 puntos de venta repartidos entre Logro\u00F1o, N\u00E1jera, Santo Domingo de la Calzada, Villamediana de Iregua y Lardero\u003C/span\u003E\u003C/strong\u003E\u003Cspan style=\u0022box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: 14px; line-height: inherit; font-family: inherit; font-optical-sizing: inherit; font-size-adjust: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; font-language-override: inherit; margin: 0px; padding: 0px; vertical-align: baseline;\u0022\u003E donde encontrar\u00E1s a nuestro equipo de agentes listos para brindarte la mejor atenci\u00F3n.\u003C/span\u003E\u003C/p\u003E\u003C/li\u003E\u003C/ul\u003E\u003Cp\u003E\u003C/p\u003E",
+                                "blocks": []
+                            },
+                            "image": [
+                                {
+                                    "focalPoint": null,
+                                    "crops": [],
+                                    "id": "85911152-5f4d-4440-bf83-96cf4f0920dc",
+                                    "name": "prueba-web-2.webp",
+                                    "mediaType": "Image",
+                                    "url": "/media/1xnnomze/prueba-web-2.webp",
+                                    "extension": "webp",
+                                    "width": 640,
+                                    "height": 640,
+                                    "bytes": 27834,
+                                    "properties": {}
+                                }
+                            ],
+                            "ctaButton": [
+                                {
+                                    "url": "/contrata-fibra-movil-desde-casa",
+                                    "queryString": null,
+                                    "title": "\u00A1Quiero unirme!",
+                                    "target": null,
+                                    "destinationId": null,
+                                    "destinationType": null,
+                                    "route": null,
+                                    "linkType": "External"
+                                }
+                            ]
+                        }
+                    },
+                    "settings": null
+                },
+                {
+                    "content": {
+                        "contentType": "featuredOffersBlock",
+                        "id": "3dceaffb-179b-4f0e-a9a6-0a3e816abb77",
+                        "properties": {
+                            "title": "Ofertas destacadas",
+                            "cards": {
+                                "items": [
+                                    {
+                                        "content": {
+                                            "contentType": "offerCard",
+                                            "id": "daa3ea32-d643-47aa-8a78-a9c21c268725",
+                                            "properties": {
+                                                "title": "Tarifa Zurracapote",
+                                                "price": "19",
+                                                "priceDecimal": "\u002790\u20AC",
+                                                "period": "IVA Incluido",
+                                                "oldPrice": "antes 25\u20AC",
+                                                "features": {
+                                                    "markup": "\u003Cul class=\u0022disc-list\u0022 style=\u0022box-sizing: border-box; margin: 0px; padding: 0px 0px 0px 30px; list-style: disc; border: 0px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-variant-alternates: inherit; font-variant-position: inherit; font-variant-emoji: inherit; font-weight: 400; font-stretch: inherit; font-size: 15px; line-height: 24px; font-family: Exo, sans-serif; font-optical-sizing: inherit; font-size-adjust: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; font-language-override: inherit; vertical-align: baseline; color: rgb(0, 0, 0); letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;\u0022\u003E\u003Cli\u003E\u003Cp\u003EFibra \u00F3ptica \u003Cstrong style=\u0022box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: 700; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; font-optical-sizing: inherit; font-size-adjust: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; font-language-override: inherit; margin: 0px; padding: 0px; vertical-align: baseline;\u0022\u003E1Gb\u003C/strong\u003E\u003C/p\u003E\u003C/li\u003E\u003Cli\u003E\u003Cp\u003EInstalaci\u00F3n incluida\u003C/p\u003E\u003C/li\u003E\u003Cli\u003E\u003Cp\u003E\u003Cstrong style=\u0022box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: 700; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; font-optical-sizing: inherit; font-size-adjust: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; font-language-override: inherit; margin: 0px; padding: 0px; vertical-align: baseline;\u0022\u003EPrecio para SIEMPRE\u003C/strong\u003E\u003C/p\u003E\u003C/li\u003E\u003C/ul\u003E\u003Cp\u003E\u003C/p\u003E",
+                                                    "blocks": []
+                                                },
+                                                "ctaLink": [
+                                                    {
+                                                        "url": "/contrata-fibra-movil-desde-casa",
+                                                        "queryString": null,
+                                                        "title": "\u00A1Contrata ahora!",
+                                                        "target": null,
+                                                        "destinationId": null,
+                                                        "destinationType": null,
+                                                        "route": null,
+                                                        "linkType": "External"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        "settings": null
+                                    },
+                                    {
+                                        "content": {
+                                            "contentType": "offerCard",
+                                            "id": "12242f9b-c131-4c34-a55d-cc4dbb5cd241",
+                                            "properties": {
+                                                "title": "TARIFA TINTO PREMIUM",
+                                                "price": "34",
+                                                "priceDecimal": "\u002790 \u20AC",
+                                                "period": "IVA incluido",
+                                                "oldPrice": "antes 39\u20AC",
+                                                "features": {
+                                                    "markup": "\u003Cul class=\u0022disc-list\u0022 style=\u0022box-sizing: border-box; margin: 0px; padding: 0px 0px 0px 30px; list-style: disc; border: 0px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-variant-alternates: inherit; font-variant-position: inherit; font-variant-emoji: inherit; font-weight: 400; font-stretch: inherit; font-size: 15px; line-height: 24px; font-family: Exo, sans-serif; font-optical-sizing: inherit; font-size-adjust: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; font-language-override: inherit; vertical-align: baseline; color: rgb(0, 0, 0); letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;\u0022\u003E\u003Cli\u003E\u003Cp\u003EFibra \u00F3ptica \u003Cstrong style=\u0022box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: 700; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; font-optical-sizing: inherit; font-size-adjust: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; font-language-override: inherit; margin: 0px; padding: 0px; vertical-align: baseline;\u0022\u003E1Gb\u003C/strong\u003E\u003C/p\u003E\u003C/li\u003E\u003Cli\u003E\u003Cp\u003E\u003Cstrong style=\u0022box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: 700; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; font-optical-sizing: inherit; font-size-adjust: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; font-language-override: inherit; margin: 0px; padding: 0px; vertical-align: baseline;\u0022\u003E2 l\u00EDneas m\u00F3viles\u003C/strong\u003E\u003C/p\u003E\u003C/li\u003E\u003Cli\u003E\u003Cp\u003EInstalaci\u00F3n incluida\u003C/p\u003E\u003C/li\u003E\u003C/ul\u003E\u003Cp\u003E\u003C/p\u003E",
+                                                    "blocks": []
+                                                },
+                                                "ctaLink": [
+                                                    {
+                                                        "url": "/contrata-fibra-movil-desde-casa",
+                                                        "queryString": null,
+                                                        "title": "\u00A1Contrata ahora!",
+                                                        "target": null,
+                                                        "destinationId": null,
+                                                        "destinationType": null,
+                                                        "route": null,
+                                                        "linkType": "External"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        "settings": null
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    "settings": null
+                },
+                {
+                    "content": {
+                        "contentType": "iconsModuleBlock",
+                        "id": "849ccff8-318c-44db-a6e4-c0cd6dd4b6b0",
+                        "properties": {
+                            "title": "Nuestros servicios",
+                            "items": {
+                                "items": [
+                                    {
+                                        "content": {
+                                            "contentType": "iconItem",
+                                            "id": "8c82c35e-4df2-45ec-bbec-6fd3e6fc34b8",
+                                            "properties": {
+                                                "icon": [
+                                                    {
+                                                        "focalPoint": null,
+                                                        "crops": [],
+                                                        "id": "d591ed8b-cf17-4ed4-95c8-a777b30703ad",
+                                                        "name": "movil.svg",
+                                                        "mediaType": "umbracoMediaVectorGraphics",
+                                                        "url": "/media/pfidgnym/movil.svg",
+                                                        "extension": "svg",
+                                                        "width": null,
+                                                        "height": null,
+                                                        "bytes": 1746,
+                                                        "properties": {}
+                                                    }
+                                                ],
+                                                "title": "M\u00F3vil",
+                                                "description": "Con\u00E9ctate donde quieras con nuestra red m\u00F3vil de alta velocidad."
+                                            }
+                                        },
+                                        "settings": null
+                                    },
+                                    {
+                                        "content": {
+                                            "contentType": "iconItem",
+                                            "id": "337c0164-01e3-478b-97af-9907d0365f22",
+                                            "properties": {
+                                                "icon": [
+                                                    {
+                                                        "focalPoint": null,
+                                                        "crops": [],
+                                                        "id": "9ea66b36-2e9c-4472-9832-59d2aeb72c99",
+                                                        "name": "router.svg",
+                                                        "mediaType": "umbracoMediaVectorGraphics",
+                                                        "url": "/media/ytlai5eh/router.svg",
+                                                        "extension": "svg",
+                                                        "width": null,
+                                                        "height": null,
+                                                        "bytes": 6499,
+                                                        "properties": {}
+                                                    }
+                                                ],
+                                                "title": "Fibra",
+                                                "description": "Navega sin l\u00EDmites con nuestra fibra \u00F3ptica ultrarr\u00E1pida."
+                                            }
+                                        },
+                                        "settings": null
+                                    },
+                                    {
+                                        "content": {
+                                            "contentType": "iconItem",
+                                            "id": "a8927815-c7a9-4789-b1b2-e95668523045",
+                                            "properties": {
+                                                "icon": [
+                                                    {
+                                                        "focalPoint": null,
+                                                        "crops": [],
+                                                        "id": "07e51fdf-25ab-49af-a865-e749ad9783a5",
+                                                        "name": "fibra-movil.svg",
+                                                        "mediaType": "umbracoMediaVectorGraphics",
+                                                        "url": "/media/fwrepznq/fibra-movil.svg",
+                                                        "extension": "svg",
+                                                        "width": null,
+                                                        "height": null,
+                                                        "bytes": 4256,
+                                                        "properties": {}
+                                                    }
+                                                ],
+                                                "title": "FIBRA \u002B M\u00D3VIL",
+                                                "description": "La combinaci\u00F3n perfecta: fibra \u00F3ptica y m\u00F3vil, todo en uno para tu comodidad."
+                                            }
+                                        },
+                                        "settings": null
+                                    },
+                                    {
+                                        "content": {
+                                            "contentType": "iconItem",
+                                            "id": "38e1faab-2631-424c-b6a8-35b82d9d93be",
+                                            "properties": {
+                                                "icon": [
+                                                    {
+                                                        "focalPoint": null,
+                                                        "crops": [],
+                                                        "id": "37ee44db-2ce2-42c5-9845-6842ad03aab7",
+                                                        "name": "tv.svg",
+                                                        "mediaType": "umbracoMediaVectorGraphics",
+                                                        "url": "/media/fh2fzvpz/tv.svg",
+                                                        "extension": "svg",
+                                                        "width": null,
+                                                        "height": null,
+                                                        "bytes": 1949,
+                                                        "properties": {}
+                                                    }
+                                                ],
+                                                "title": "TELEVISI\u00D3N",
+                                                "description": "Entretenimiento ilimitado que te transporta a una experiencia televisiva incomparable."
+                                            }
+                                        },
+                                        "settings": null
+                                    }
+                                ]
+                            },
+                            "backgroundColor": "#fad6cb"
+                        }
+                    },
+                    "settings": null
+                },
+                {
+                    "content": {
+                        "contentType": "contactSectionBlock",
+                        "id": "bd899636-2347-4d90-8869-3adfc5c5a6be",
+                        "properties": {
+                            "title": "Contacta con \u003Cspan\u003EKnet\u003C/span\u003E",
+                            "description": {
+                                "markup": "\u003Cp\u003E\u00BFTienes alguna duda? \u00A1No te preocupes! \u003C/p\u003E\u003Cp\u003EEl mejor equipo y el m\u00E1s Riojano est\u00E1 listo para responder a todas tus dudas y solucionar cualquier tipo de incidencia. \u003C/p\u003E\u003Cp\u003ENo dudes en contactarnos a trav\u00E9s del siguiente formulario o mediante nuestros datos de contacto.\u003C/p\u003E",
+                                "blocks": []
+                            },
+                            "ctaButton": [
+                                {
+                                    "url": "/servicio-de-atencion-al-cliente-de-knet",
+                                    "queryString": null,
+                                    "title": "Contactar",
+                                    "target": null,
+                                    "destinationId": null,
+                                    "destinationType": null,
+                                    "route": null,
+                                    "linkType": "External"
+                                }
+                            ],
+                            "sections": {
+                                "items": [
+                                    {
+                                        "content": {
+                                            "contentType": "contactInfoSection",
+                                            "id": "da0060da-ba51-4405-b3f9-b3475fb77975",
+                                            "properties": {
+                                                "sectionTitle": "Servicio de atenci\u00F3n al cliente",
+                                                "items": {
+                                                    "items": [
+                                                        {
+                                                            "content": {
+                                                                "contentType": "contactInfoItem",
+                                                                "id": "90ebbcea-9613-4c19-b356-e0e5eb4c7bf7",
+                                                                "properties": {
+                                                                    "icon": [
+                                                                        {
+                                                                            "focalPoint": null,
+                                                                            "crops": [],
+                                                                            "id": "bb1a2add-6373-43e9-b5c9-a71a71930d44",
+                                                                            "name": "icon-phone.svg",
+                                                                            "mediaType": "umbracoMediaVectorGraphics",
+                                                                            "url": "/media/f4llqwli/icon-phone.svg",
+                                                                            "extension": "svg",
+                                                                            "width": null,
+                                                                            "height": null,
+                                                                            "bytes": 3317,
+                                                                            "properties": {}
+                                                                        }
+                                                                    ],
+                                                                    "text": "Tel\u00E9fono de atenci\u00F3n al cliente:  941 51 91 51",
+                                                                    "link": "tel:941 51 91 51"
+                                                                }
+                                                            },
+                                                            "settings": null
+                                                        },
+                                                        {
+                                                            "content": {
+                                                                "contentType": "contactInfoItem",
+                                                                "id": "29463c6b-40a2-4081-b0de-2525c735cf50",
+                                                                "properties": {
+                                                                    "icon": [
+                                                                        {
+                                                                            "focalPoint": null,
+                                                                            "crops": [],
+                                                                            "id": "84d864cf-b84a-4504-bd9b-1ae7d7bb0c12",
+                                                                            "name": "icon-email.svg",
+                                                                            "mediaType": "umbracoMediaVectorGraphics",
+                                                                            "url": "/media/hxmhuzsr/icon-email.svg",
+                                                                            "extension": "svg",
+                                                                            "width": null,
+                                                                            "height": null,
+                                                                            "bytes": 3398,
+                                                                            "properties": {}
+                                                                        }
+                                                                    ],
+                                                                    "text": "sac@knet.es",
+                                                                    "link": "mailto:sac@knet.es"
+                                                                }
+                                                            },
+                                                            "settings": null
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        },
+                                        "settings": null
+                                    },
+                                    {
+                                        "content": {
+                                            "contentType": "contactInfoSection",
+                                            "id": "19d9c2a7-fe9f-4e97-96b8-9bae028db751",
+                                            "properties": {
+                                                "sectionTitle": "Contacto comercial para las tiendas",
+                                                "items": {
+                                                    "items": [
+                                                        {
+                                                            "content": {
+                                                                "contentType": "contactInfoItem",
+                                                                "id": "bb1c0266-0937-4c76-aa14-becad94d4340",
+                                                                "properties": {
+                                                                    "icon": [
+                                                                        {
+                                                                            "focalPoint": null,
+                                                                            "crops": [],
+                                                                            "id": "bb1a2add-6373-43e9-b5c9-a71a71930d44",
+                                                                            "name": "icon-phone.svg",
+                                                                            "mediaType": "umbracoMediaVectorGraphics",
+                                                                            "url": "/media/f4llqwli/icon-phone.svg",
+                                                                            "extension": "svg",
+                                                                            "width": null,
+                                                                            "height": null,
+                                                                            "bytes": 3317,
+                                                                            "properties": {}
+                                                                        }
+                                                                    ],
+                                                                    "text": "941 54 40 80",
+                                                                    "link": "tel:941 54 40 80"
+                                                                }
+                                                            },
+                                                            "settings": null
+                                                        },
+                                                        {
+                                                            "content": {
+                                                                "contentType": "contactInfoItem",
+                                                                "id": "72b9e0f9-bc9b-48ff-a071-e7e779c10d33",
+                                                                "properties": {
+                                                                    "icon": [
+                                                                        {
+                                                                            "focalPoint": null,
+                                                                            "crops": [],
+                                                                            "id": "84d864cf-b84a-4504-bd9b-1ae7d7bb0c12",
+                                                                            "name": "icon-email.svg",
+                                                                            "mediaType": "umbracoMediaVectorGraphics",
+                                                                            "url": "/media/hxmhuzsr/icon-email.svg",
+                                                                            "extension": "svg",
+                                                                            "width": null,
+                                                                            "height": null,
+                                                                            "bytes": 3398,
+                                                                            "properties": {}
+                                                                        }
+                                                                    ],
+                                                                    "text": "web@knet.es",
+                                                                    "link": "mailto:web@knet.es"
+                                                                }
+                                                            },
+                                                            "settings": null
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        },
+                                        "settings": null
+                                    },
+                                    {
+                                        "content": {
+                                            "contentType": "contactInfoSection",
+                                            "id": "4dab6e50-a92b-4a19-a8ab-6af1b7b68414",
+                                            "properties": {
+                                                "sectionTitle": "Puntos de venta",
+                                                "items": {
+                                                    "items": [
+                                                        {
+                                                            "content": {
+                                                                "contentType": "contactInfoItem",
+                                                                "id": "37799df4-0fef-4e2e-b89f-9de7730f55c5",
+                                                                "properties": {
+                                                                    "icon": [
+                                                                        {
+                                                                            "focalPoint": null,
+                                                                            "crops": [],
+                                                                            "id": "04988e2b-1de7-4bee-9305-3fec19416343",
+                                                                            "name": "icon-location.svg",
+                                                                            "mediaType": "umbracoMediaVectorGraphics",
+                                                                            "url": "/media/1ezdvzx2/icon-location.svg",
+                                                                            "extension": "svg",
+                                                                            "width": null,
+                                                                            "height": null,
+                                                                            "bytes": 1861,
+                                                                            "properties": {}
+                                                                        }
+                                                                    ],
+                                                                    "text": "Vara de Rey 7, Logro\u00F1o",
+                                                                    "link": null
+                                                                }
+                                                            },
+                                                            "settings": null
+                                                        },
+                                                        {
+                                                            "content": {
+                                                                "contentType": "contactInfoItem",
+                                                                "id": "e22a3ddc-0b70-4416-ba67-f7e684de6048",
+                                                                "properties": {
+                                                                    "icon": [
+                                                                        {
+                                                                            "focalPoint": null,
+                                                                            "crops": [],
+                                                                            "id": "04988e2b-1de7-4bee-9305-3fec19416343",
+                                                                            "name": "icon-location.svg",
+                                                                            "mediaType": "umbracoMediaVectorGraphics",
+                                                                            "url": "/media/1ezdvzx2/icon-location.svg",
+                                                                            "extension": "svg",
+                                                                            "width": null,
+                                                                            "height": null,
+                                                                            "bytes": 1861,
+                                                                            "properties": {}
+                                                                        }
+                                                                    ],
+                                                                    "text": "Avda de la Paz 76, Logro\u00F1o",
+                                                                    "link": null
+                                                                }
+                                                            },
+                                                            "settings": null
+                                                        },
+                                                        {
+                                                            "content": {
+                                                                "contentType": "contactInfoItem",
+                                                                "id": "1791cbc4-d3ac-4fc6-9765-41f13f0cb194",
+                                                                "properties": {
+                                                                    "icon": [
+                                                                        {
+                                                                            "focalPoint": null,
+                                                                            "crops": [],
+                                                                            "id": "04988e2b-1de7-4bee-9305-3fec19416343",
+                                                                            "name": "icon-location.svg",
+                                                                            "mediaType": "umbracoMediaVectorGraphics",
+                                                                            "url": "/media/1ezdvzx2/icon-location.svg",
+                                                                            "extension": "svg",
+                                                                            "width": null,
+                                                                            "height": null,
+                                                                            "bytes": 1861,
+                                                                            "properties": {}
+                                                                        }
+                                                                    ],
+                                                                    "text": "San Roque 5, Santo Domingo de la Calzada",
+                                                                    "link": null
+                                                                }
+                                                            },
+                                                            "settings": null
+                                                        },
+                                                        {
+                                                            "content": {
+                                                                "contentType": "contactInfoItem",
+                                                                "id": "af2a31f9-767f-40a1-a3a3-b32c4e2bb85d",
+                                                                "properties": {
+                                                                    "icon": [
+                                                                        {
+                                                                            "focalPoint": null,
+                                                                            "crops": [],
+                                                                            "id": "04988e2b-1de7-4bee-9305-3fec19416343",
+                                                                            "name": "icon-location.svg",
+                                                                            "mediaType": "umbracoMediaVectorGraphics",
+                                                                            "url": "/media/1ezdvzx2/icon-location.svg",
+                                                                            "extension": "svg",
+                                                                            "width": null,
+                                                                            "height": null,
+                                                                            "bytes": 1861,
+                                                                            "properties": {}
+                                                                        }
+                                                                    ],
+                                                                    "text": "Plaza San Francisco 3, N\u00E1jera",
+                                                                    "link": null
+                                                                }
+                                                            },
+                                                            "settings": null
+                                                        },
+                                                        {
+                                                            "content": {
+                                                                "contentType": "contactInfoItem",
+                                                                "id": "d8c551e6-0b3b-4567-a955-ed70ef02de26",
+                                                                "properties": {
+                                                                    "icon": [
+                                                                        {
+                                                                            "focalPoint": null,
+                                                                            "crops": [],
+                                                                            "id": "04988e2b-1de7-4bee-9305-3fec19416343",
+                                                                            "name": "icon-location.svg",
+                                                                            "mediaType": "umbracoMediaVectorGraphics",
+                                                                            "url": "/media/1ezdvzx2/icon-location.svg",
+                                                                            "extension": "svg",
+                                                                            "width": null,
+                                                                            "height": null,
+                                                                            "bytes": 1861,
+                                                                            "properties": {}
+                                                                        }
+                                                                    ],
+                                                                    "text": "Anastasio Mateo 10, Villamediana de Iregua",
+                                                                    "link": null
+                                                                }
+                                                            },
+                                                            "settings": null
+                                                        },
+                                                        {
+                                                            "content": {
+                                                                "contentType": "contactInfoItem",
+                                                                "id": "fa4df01f-d1a7-4a7f-becd-6e6f81d4131f",
+                                                                "properties": {
+                                                                    "icon": [
+                                                                        {
+                                                                            "focalPoint": null,
+                                                                            "crops": [],
+                                                                            "id": "04988e2b-1de7-4bee-9305-3fec19416343",
+                                                                            "name": "icon-location.svg",
+                                                                            "mediaType": "umbracoMediaVectorGraphics",
+                                                                            "url": "/media/1ezdvzx2/icon-location.svg",
+                                                                            "extension": "svg",
+                                                                            "width": null,
+                                                                            "height": null,
+                                                                            "bytes": 1861,
+                                                                            "properties": {}
+                                                                        }
+                                                                    ],
+                                                                    "text": "Gonzalez Gallarza 62, Lardero",
+                                                                    "link": null
+                                                                }
+                                                            },
+                                                            "settings": null
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        },
+                                        "settings": null
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    "settings": null
+                }
+            ]
+        }
+    },
+    "cultures": {}
+}
