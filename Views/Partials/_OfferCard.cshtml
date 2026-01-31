@@ -79,10 +79,12 @@
     var isLanding = ViewData["isLanding"] as bool? ?? true;
     
     // Padding fixed to 20x40x20x20 as per template inspection
-    var cardStyle = "padding: 20px 40px 20px 20px; color: #000;";
+    var cardStyle = "color: #000;";
+    // Determine card class: default to 'card', but allow override (e.g., 'white-card')
+    var cardClass = ViewData["cardClass"] as string ?? "card";
 }
 
-<div class="card" style="@cardStyle">
+<div class="@cardClass" style="@cardStyle">
     <div>
         <div class="card-precio">
             <div class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_inline_rich_text">

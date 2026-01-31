@@ -4,8 +4,7 @@
 @{
     var content = Model.Content;
     var title = content.Value<string>("title");
-    var textContent = content.Value<Umbraco.Cms.Core.Strings.IHtmlEncodedString>("content")
-                   ?? content.Value<Umbraco.Cms.Core.Strings.IHtmlEncodedString>("description");
+    var description = content.Value<Umbraco.Cms.Core.Strings.IHtmlEncodedString>("description");
 }
 
 <div class="text-group">
@@ -13,7 +12,10 @@
     {
         <h3 class="title">@Html.Raw(title)</h3>
     }
-    <div class="description">
-        @textContent
-    </div>
+    @if (description != null)
+    {
+        <div class="description">
+            @description
+        </div>
+    }
 </div>
