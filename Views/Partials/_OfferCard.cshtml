@@ -109,8 +109,8 @@
     }
 }
 
-@* Removed min-width to allow cards to adapt to available space. Added flex column + height 100% to push CTA to bottom. *@
-<div class="@cardClass" style="@styleAttr height: 100%; display: flex; flex-direction: column; flex-shrink: 0;">
+@* Removed height: 100% to allow parent's align-items: stretch to work. Added align-self: stretch. *@
+<div class="@cardClass" style="@styleAttr display: flex; flex-direction: column; flex-shrink: 0; align-self: stretch; height: auto !important;">
     @if (isVertical)
     {
         @* === VERTICAL LAYOUT (white-card / tarifa-movil.html) === *@

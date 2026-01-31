@@ -126,7 +126,7 @@
                                 });
                                 
                                 var containerClass = hasVerticalCards ? "inner-white-cards" : "inner-cards";
-                                var scrollStyle = isLeft ? "" : "overflow-x: auto; scrollbar-width: none; -ms-overflow-style: none;";
+                                var scrollStyle = "display: flex; align-items: stretch; " + (isLeft ? "" : "overflow-x: auto; scrollbar-width: none; -ms-overflow-style: none; ");
                                 
                                 <div class="@containerClass" style="@scrollStyle">
 
