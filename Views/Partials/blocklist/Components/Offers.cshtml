@@ -113,8 +113,22 @@
 
                             if (!anyItemHasImage)
                             {
-                                @* GRID MODE: Use appropriate container based on page type *@
-                                <div class="inner-cards" style="@(isLeft ? "" : "overflow-x: auto; scrollbar-width: none; -ms-overflow-style: none;")">
+                                @* GRID MODE: Determine container class based on card style *@
+                                @* Check if any ProductCard has Vertical style *@
+                                var hasVerticalCards = heroContent.Any(x => 
+                                {
+                                    if (x.Content.ContentType.Alias.Equals("productCard", StringComparison.OrdinalIgnoreCase))
+                                    {
+                                        var cardStyle = x.Content.Value<string>("cardStyle");
+                                        return string.Equals(cardStyle, "Vertical", StringComparison.OrdinalIgnoreCase);
+                                    }
+                                    return false;
+                                });
+                                
+                                var containerClass = hasVerticalCards ? "inner-white-cards" : "inner-cards";
+                                var scrollStyle = isLeft ? "" : "overflow-x: auto; scrollbar-width: none; -ms-overflow-style: none;";
+                                
+                                <div class="@containerClass" style="@scrollStyle">
 
                                     @foreach (var item in heroContent)
                                     {
@@ -125,6 +139,11 @@
 
                                         if (itemContent.ContentType.Alias.Equals("productCard", StringComparison.OrdinalIgnoreCase))
                                         {
+                                            // Read cardStyle from ProductCard to apply to all its offers
+                                            var productCardStyle = itemContent.Value<string>("cardStyle");
+                                            var isVerticalStyle = string.Equals(productCardStyle, "Vertical", StringComparison.OrdinalIgnoreCase);
+                                            var cardClass = isVerticalStyle ? "white-card" : "card";
+                                            
                                             if (pickedOffers != null)
                                             {
                                                 foreach (var offer in pickedOffers)
@@ -132,8 +151,12 @@
                                                     var offerElement = offer as IPublishedElement;
                                                     if (offerElement != null)
                                                     {
-                                                        @* Default to 'card' (Horizontal), but _OfferCard will override if cardStyle is 'Vertical' *@
-                                                        @await Html.PartialAsync("_OfferCard", offerElement, new ViewDataDictionary(ViewData) { { "isLanding", hasBgImage }, { "cardClass", "card" } })
+                                                        @* Pass cardStyle from ProductCard to each offer *@
+                                                        @await Html.PartialAsync("_OfferCard", offerElement, new ViewDataDictionary(ViewData) { 
+                                                            { "isLanding", hasBgImage }, 
+                                                            { "cardClass", cardClass },
+                                                            { "cardStyle", productCardStyle }
+                                                        })
                                                     }
                                                 }
                                             }

@@ -29,8 +29,8 @@
             if (parts.Length >= 2)
             {
                 displayedPrice = parts[0];
-                // Format decimal part: '90 €
-                priceDecimal = $"'{parts[1]} €";
+                // Keep only the numeric part, we'll add ' and € in the HTML for consistency
+                priceDecimal = parts[1];
             }
         }
     }
@@ -89,9 +89,9 @@
     
     var isLanding = ViewData["isLanding"] as bool? ?? true;
     
-    // Determine layout based on 'cardStyle' property
+    // Determine layout based on 'cardStyle' property from ProductCard (passed via ViewData)
     // Options: "Vertical" (Icon top, stacked) vs "Horizontal" (Title/Price grouped, no top icon) -> Default
-    var cardStyleValue = card.Value<string>("cardStyle");
+    var cardStyleValue = ViewData["cardStyle"] as string ?? card.Value<string>("cardStyle"); // Fallback to card property if not in ViewData
     var isVertical = string.Equals(cardStyleValue, "Vertical", StringComparison.OrdinalIgnoreCase);
 
     // Padding fixed to 20x40x20x20 as per template inspection
@@ -113,27 +113,49 @@
 <div class="@cardClass" style="@styleAttr height: 100%; display: flex; flex-direction: column; flex-shrink: 0;">
     @if (isVertical)
     {
-        @* === VERTICAL LAYOUT (white-card / Mobile / Tariffs) === *@
+        @* === VERTICAL LAYOUT (white-card / tarifa-movil.html) === *@
         
         @* 1. Top Icon/Image *@
         var image = card.Value<Umbraco.Cms.Core.Models.MediaWithCrops>("image");
         if (image != null)
         {
-             <img src="@image.Url()" alt="@(image.Value<string>("alt") ?? "Icono tarifa")" loading="lazy" width="100" height="81" style="max-width: 100%; height: auto; align-self: center;">
+             <img src="@image.Url()" alt="@(image.Value<string>("alt") ?? "Icono tarifa")" loading="lazy" width="100" height="100" style="max-width: 100%; height: auto;">
         }
 
         @* 2. Title *@
         <div class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_inline_rich_text">
-            <h3 class="title">
-                 <span>@Html.Raw(cardTitle?.ToUpper())</span>
-            </h3>
+            <h3 class="title">@Html.Raw(cardTitle?.ToUpper())</h3>
         </div>
 
-        @* 3. Description/Features (Moved above Price to match template/img2) *@
+        @* 3. Subtitle/Tarifa (optional field) *@
+        var subtitle = card.Value<string>("subtitle") ?? card.Value<string>("tarifa");
+        if (!string.IsNullOrEmpty(subtitle))
+        {
+            <div class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_inline_rich_text">
+                <p class="tarifa">@Html.Raw(subtitle)</p>
+            </div>
+        }
+
+        @* 4. Price Block *@
+        <div class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_inline_rich_text">
+            <div class="group-tarifa">
+                <div class="coste">@displayedPrice<br>
+                    <div style="display: flex; flex-direction: column; justify-content: space-between;">
+                        <sup>'@priceDecimal.Replace("'", "").Replace("€", "").Trim()&nbsp;€</sup> 
+                        <sub>@period</sub>
+                    </div>
+                </div>
+                @if (!string.IsNullOrEmpty(oldPrice))
+                {
+                    <p class="antes">antes @oldPrice</p>
+                }
+            </div>
+        </div>
+
+        @* 4b. Features/Description (Added back below price to match fiber-movil template variant) *@
         if (features != null)
         {
-             <div class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_inline_rich_text" style="flex-grow: 1;"> 
-                 @* Added flex-grow to push price/cta down if content is short, or just to fill space *@
+             <div class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_inline_rich_text" style="flex-grow: 1; margin-top: 15px;"> 
                  @features
              </div>
         }
@@ -142,24 +164,7 @@
             <div style="flex-grow: 1;"></div>
         }
 
-        @* 4. Price Block *@
-         <div class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_inline_rich_text">
-            <div class="group-tarifa">
-                <div class="coste">
-                    @displayedPrice<br>
-                    <div style="display: flex; flex-direction: column; justify-content: space-between;">
-                         <sup>@priceDecimal</sup> 
-                         <sub>@period</sub>
-                    </div>
-                </div>
-                 @if (!string.IsNullOrEmpty(oldPrice))
-                 {
-                    <!--<p class="antes">@oldPrice</p>-->
-                 }
-            </div>
-        </div>
-
-         @* 5. CTA - Pushed to bottom via margin-top: auto, centered horizontally *@
+         @* 5. CTA - At bottom *@
         if (ctaLink != null)
         {
             <a href="@ctaLink.Url" class="btn-blue-icon" target="@ctaLink.Target" style="margin-top: auto; align-self: center; display: flex; align-items: center; justify-content: center; gap: 8px;">
@@ -179,10 +184,10 @@
             <div class="card-precio">
                 <div class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_inline_rich_text">
                     <div class="precio">
-                        @displayedPrice
+                        <span style="color: #f05a22;">@displayedPrice</span>
                         <div style="display: flex; flex-direction: column; justify-content: space-between;">
-                            <sup>@priceDecimal</sup> 
-                            <sub style="color: #000 !important;">@period</sub>
+                            <sup style="color: #f05a22;">'@priceDecimal.Replace("'", "").Replace("€", "").Trim()&nbsp;€</sup> 
+                            <sub style="color: #f05a22 !important;">@period</sub>
                         </div>
                     </div>
                     @if (!string.IsNullOrEmpty(oldPrice))
@@ -191,7 +196,7 @@
                     }
                     @if (!string.IsNullOrEmpty(cardTitle))
                     {
-                        <p class="tarifa">@cardTitle.ToUpper()</p>
+                        <p class="tarifa" style="color: #f05a22;">@cardTitle.ToUpper()</p>
                     }
                 </div>
             </div>
