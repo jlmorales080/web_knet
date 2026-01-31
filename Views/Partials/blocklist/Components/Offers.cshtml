@@ -247,13 +247,19 @@
                             <style>
                                 .offers-footer-grid { margin-top: 50px; width: 100%; color: @(hasBgImage ? "#fff" : "inherit"); }
                                 .offers-footer-grid .umb-block-grid__layout-container {
-                                    display: grid;
-                                    grid-template-columns: repeat(12, 1fr);
+                                    display: flex;
+                                    flex-wrap: wrap;
+                                    justify-content: center;
                                     gap: 30px;
                                     align-items: center;
                                 }
                                 .offers-footer-grid .umb-block-grid__layout-item {
-                                    grid-column: span var(--umb-block-grid--item-column-span);
+                                    /* Calculate width based on column span (total 12 columns) */
+                                    flex: 0 0 calc((100% * var(--umb-block-grid--item-column-span) / 12) - (30px * (12 - var(--umb-block-grid--item-column-span)) / 12));
+                                    max-width: 100%;
+                                }
+                                .offers-footer-grid .text-group {
+                                    text-align: center;
                                 }
                                 .offers-footer-grid .text-group h3, 
                                 .offers-footer-grid .text-group .title { 
@@ -271,8 +277,14 @@
                                     color: inherit; 
                                 }
                                 .offers-footer-grid .text-group strong { font-weight: 700; }
-                                .offers-footer-grid .text-group ul { list-style: disc; padding-left: 20px; margin-top: 10px; }
+                                .offers-footer-grid .text-group ul { list-style: disc; display: inline-block; text-align: left; padding-left: 20px; margin-top: 10px; }
                                 .offers-footer-grid .text-group li { margin-bottom: 8px; font-size: 16px; }
+                                
+                                /* Centering images within the footer */
+                                .offers-footer-grid img {
+                                    margin: 0 auto;
+                                    display: block;
+                                }
                                 
                                 /* Responsive adjustment */
                                 @@media (max-width: 767px) {
