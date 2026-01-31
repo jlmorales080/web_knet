@@ -59,6 +59,13 @@
         ? $"margin-bottom: 0 !important; padding: 50px 0 !important; background-image: url('{backgroundImage.Url()}'); background-size: cover; background-position: center;" 
         : "margin-bottom: 0 !important; padding: 50px 0 !important;";
 
+    <style>
+        .description-text, .description-text p { color: #fff; font-size: 18px; line-height: 1.6; }
+        .description-text a { color: #fff !important; text-decoration: underline; }
+        .description-text a:hover { text-decoration: none; }
+        .description-text ul { list-style: disc; display: block; text-align: left; padding-left: 20px; margin: 15px auto; max-width: 880px; }
+        .description-text li { margin-bottom: 8px; color: #fff; font-size: 18px; }
+    </style>
     <div class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module">
         <section class="@sectionClass" style="@sectionStyle">
             <div class="wrapper">
@@ -272,12 +279,14 @@
                                 }
                                 .offers-footer-grid .text-group p,
                                 .offers-footer-grid .text-group .description { 
-                                    font-size: 16px; 
+                                    font-size: 18px; 
                                     line-height: 1.4; 
                                     color: inherit; 
                                 }
+                                .offers-footer-grid .text-group a { color: inherit !important; text-decoration: underline; }
+                                .offers-footer-grid .text-group a:hover { text-decoration: none; }
                                 .offers-footer-grid .text-group strong { font-weight: 700; }
-                                .offers-footer-grid .text-group ul { list-style: disc; display: inline-block; text-align: left; padding-left: 20px; margin-top: 10px; }
+                                .offers-footer-grid .text-group ul { list-style: disc; display: block; text-align: left; padding-left: 20px; margin: 15px auto; max-width: 880px; }
                                 .offers-footer-grid .text-group li { margin-bottom: 8px; font-size: 16px; }
                                 
                                 /* Centering images within the footer */
