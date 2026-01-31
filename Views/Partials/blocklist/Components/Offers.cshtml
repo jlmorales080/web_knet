@@ -113,72 +113,38 @@
 
                             if (!anyItemHasImage)
                             {
-                                if (isLeft)
-                                {
-                                    @* HOME LAYOUT (Title Left -> Use .inner-cards + .card) *@
-                                    <div class="inner-cards">
-                                        @foreach (var item in heroContent)
-                                        {
-                                            var itemContent = item.Content;
-                                            var pickedOffers = itemContent.Value<IEnumerable<IPublishedContent>>("cards") 
-                                                           ?? itemContent.Value<IEnumerable<IPublishedContent>>("offercard")
-                                                           ?? Enumerable.Empty<IPublishedContent>();
+                                @* GRID MODE: Use appropriate container based on page type *@
+                                <div class="inner-cards" style="@(isLeft ? "" : "overflow-x: auto; scrollbar-width: none; -ms-overflow-style: none;")">
 
-                                            if (itemContent.ContentType.Alias.Equals("productCard", StringComparison.OrdinalIgnoreCase))
+                                    @foreach (var item in heroContent)
+                                    {
+                                        var itemContent = item.Content;
+                                        var pickedOffers = itemContent.Value<IEnumerable<IPublishedContent>>("cards") 
+                                                       ?? itemContent.Value<IEnumerable<IPublishedContent>>("offercard")
+                                                       ?? Enumerable.Empty<IPublishedContent>();
+
+                                        if (itemContent.ContentType.Alias.Equals("productCard", StringComparison.OrdinalIgnoreCase))
+                                        {
+                                            if (pickedOffers != null)
                                             {
-                                                if (pickedOffers != null)
+                                                foreach (var offer in pickedOffers)
                                                 {
-                                                    foreach (var offer in pickedOffers)
+                                                    var offerElement = offer as IPublishedElement;
+                                                    if (offerElement != null)
                                                     {
-                                                        var offerElement = offer as IPublishedElement;
-                                                        if (offerElement != null)
-                                                        {
-                                                            @await Html.PartialAsync("_OfferCard", offerElement, new ViewDataDictionary(ViewData) { { "isLanding", hasBgImage }, { "cardClass", "card" } })
-                                                        }
+                                                        @* Default to 'card' (Horizontal), but _OfferCard will override if cardStyle is 'Vertical' *@
+                                                        @await Html.PartialAsync("_OfferCard", offerElement, new ViewDataDictionary(ViewData) { { "isLanding", hasBgImage }, { "cardClass", "card" } })
                                                     }
                                                 }
                                             }
-                                            else if (itemContent.ContentType.Alias.Equals("offerCard", StringComparison.OrdinalIgnoreCase))
-                                            {
-                                                 @* Direct offer card *@
-                                                 @await Html.PartialAsync("_OfferCard", itemContent, new ViewDataDictionary(ViewData) { { "isLanding", hasBgImage }, { "cardClass", "card" } })
-                                            }
                                         }
-                                    </div>
-                                }
-                                else
-                                {
-                                    @* GRID MODE (Fibra+Movil -> Use .inner-white-cards + .white-card) *@
-                                    <div class="inner-white-cards">
-                                        @foreach (var item in heroContent)
+                                        else if (itemContent.ContentType.Alias.Equals("offerCard", StringComparison.OrdinalIgnoreCase))
                                         {
-                                            var itemContent = item.Content;
-                                            var pickedOffers = itemContent.Value<IEnumerable<IPublishedContent>>("cards") 
-                                                           ?? itemContent.Value<IEnumerable<IPublishedContent>>("offercard")
-                                                           ?? Enumerable.Empty<IPublishedContent>();
-
-                                            if (itemContent.ContentType.Alias.Equals("productCard", StringComparison.OrdinalIgnoreCase))
-                                            {
-                                                if (pickedOffers != null)
-                                                {
-                                                    foreach (var offer in pickedOffers)
-                                                    {
-                                                        var offerElement = offer as IPublishedElement;
-                                                        if (offerElement != null)
-                                                        {
-                                                            @await Html.PartialAsync("_OfferCard", offerElement, new ViewDataDictionary(ViewData) { { "isLanding", hasBgImage }, { "cardClass", "white-card" } })
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                            else if (itemContent.ContentType.Alias.Equals("offerCard", StringComparison.OrdinalIgnoreCase))
-                                            {
-                                                 @* Direct offer card *@
-                                                 @await Html.PartialAsync("_OfferCard", itemContent, new ViewDataDictionary(ViewData) { { "isLanding", hasBgImage }, { "cardClass", "white-card" } })
-                                            }
+                                             @* Direct offer card *@
+                                             @await Html.PartialAsync("_OfferCard", itemContent, new ViewDataDictionary(ViewData) { { "isLanding", hasBgImage }, { "cardClass", "card" } })
                                         }
-                                    </div>
-                                }
+                                    }
+                                </div>
                             }
                             else
                             {

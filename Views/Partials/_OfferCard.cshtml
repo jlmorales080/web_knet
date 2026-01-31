@@ -71,61 +71,150 @@
             if (linkData != null)
             {
                 ctaLink = linkData;
-                ctaIcon = content.Value<string>("icon");
+                
+                // Try to get icon as Media Picker
+                var iconMedia = content.Value<IPublishedContent>("icon");
+                if (iconMedia != null)
+                {
+                    ctaIcon = iconMedia.Url();
+                }
+                else
+                {
+                    // Fallback: try as string (direct URL)
+                    ctaIcon = content.Value<string>("icon");
+                }
             }
         }
     }
     
     var isLanding = ViewData["isLanding"] as bool? ?? true;
     
+    // Determine layout based on 'cardStyle' property
+    // Options: "Vertical" (Icon top, stacked) vs "Horizontal" (Title/Price grouped, no top icon) -> Default
+    var cardStyleValue = card.Value<string>("cardStyle");
+    var isVertical = string.Equals(cardStyleValue, "Vertical", StringComparison.OrdinalIgnoreCase);
+
     // Padding fixed to 20x40x20x20 as per template inspection
-    var cardStyle = "color: #000;";
-    // Determine card class: default to 'card', but allow override (e.g., 'white-card')
-    var cardClass = ViewData["cardClass"] as string ?? "card";
+    var styleAttr = "color: #000;";
+    // Determine CSS class based strictly on the Style:
+    // Vertical -> 'white-card'
+    // Horizontal/Default -> 'card'
+    // We ignore ViewData["cardClass"] to prevent mismatches (e.g., Offers.cshtml passing 'white-card' but us rendering Horizontal HTML).
+    var cardClass = isVertical ? "white-card" : "card";
+    
+    // For Vertical layout (white-card), the template expects specific internal styling
+    if (isVertical) 
+    {
+         // Ensure it matches the template's 'white-card' structure exactly if needed
+    }
 }
 
-<div class="@cardClass" style="@cardStyle">
-    <div>
-        <div class="card-precio">
-            <div class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_inline_rich_text">
-                <div class="precio">
-                    @displayedPrice
+@* Removed min-width to allow cards to adapt to available space. Added flex column + height 100% to push CTA to bottom. *@
+<div class="@cardClass" style="@styleAttr height: 100%; display: flex; flex-direction: column; flex-shrink: 0;">
+    @if (isVertical)
+    {
+        @* === VERTICAL LAYOUT (white-card / Mobile / Tariffs) === *@
+        
+        @* 1. Top Icon/Image *@
+        var image = card.Value<Umbraco.Cms.Core.Models.MediaWithCrops>("image");
+        if (image != null)
+        {
+             <img src="@image.Url()" alt="@(image.Value<string>("alt") ?? "Icono tarifa")" loading="lazy" width="100" height="81" style="max-width: 100%; height: auto; align-self: center;">
+        }
+
+        @* 2. Title *@
+        <div class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_inline_rich_text">
+            <h3 class="title">
+                 <span>@Html.Raw(cardTitle?.ToUpper())</span>
+            </h3>
+        </div>
+
+        @* 3. Description/Features (Moved above Price to match template/img2) *@
+        if (features != null)
+        {
+             <div class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_inline_rich_text" style="flex-grow: 1;"> 
+                 @* Added flex-grow to push price/cta down if content is short, or just to fill space *@
+                 @features
+             </div>
+        }
+        else 
+        {
+            <div style="flex-grow: 1;"></div>
+        }
+
+        @* 4. Price Block *@
+         <div class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_inline_rich_text">
+            <div class="group-tarifa">
+                <div class="coste">
+                    @displayedPrice<br>
                     <div style="display: flex; flex-direction: column; justify-content: space-between;">
-                        <sup>@priceDecimal</sup> 
-                        @* Forced black color for 'IVA incluido' / period *@
-                        <sub style="color: #000 !important;">@period</sub>
+                         <sup>@priceDecimal</sup> 
+                         <sub>@period</sub>
                     </div>
                 </div>
-                @if (!string.IsNullOrEmpty(oldPrice))
-                {
-                    <span class="antes">@oldPrice</span>
-                }
-                @if (!string.IsNullOrEmpty(cardTitle))
-                {
-                    <p class="tarifa">@cardTitle.ToUpper()</p>
-                }
+                 @if (!string.IsNullOrEmpty(oldPrice))
+                 {
+                    <!--<p class="antes">@oldPrice</p>-->
+                 }
             </div>
         </div>
 
-        @if (features != null)
+         @* 5. CTA - Pushed to bottom via margin-top: auto, centered horizontally *@
+        if (ctaLink != null)
         {
-            @* Forced black color for features list to avoid inheriting white from Hero section *@
-            <div class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_inline_rich_text" style="color: #000 !important;">
-                @features
-            </div>
-        }
-    </div>
-
-    @if (ctaLink != null)
-    {
-        <div class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_inline_rich_text">
-            <a href="@ctaLink.Url" class="btn-blue-icon" target="@ctaLink.Target">
+            <a href="@ctaLink.Url" class="btn-blue-icon" target="@ctaLink.Target" style="margin-top: auto; align-self: center; display: flex; align-items: center; justify-content: center; gap: 8px;">
                 @if (!string.IsNullOrEmpty(ctaIcon))
                 {
-                    <i class="@ctaIcon"></i>
+                    <img src="@ctaIcon" alt="Icon"> 
                 }
                 @ctaLink.Name
             </a>
+        }
+    }
+    else
+    {
+        @* === HORIZONTAL LAYOUT (card / Home / Fibra) === *@
+        
+        <div style="flex: 1;">
+            <div class="card-precio">
+                <div class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_inline_rich_text">
+                    <div class="precio">
+                        @displayedPrice
+                        <div style="display: flex; flex-direction: column; justify-content: space-between;">
+                            <sup>@priceDecimal</sup> 
+                            <sub style="color: #000 !important;">@period</sub>
+                        </div>
+                    </div>
+                    @if (!string.IsNullOrEmpty(oldPrice))
+                    {
+                        <span class="antes">@oldPrice</span>
+                    }
+                    @if (!string.IsNullOrEmpty(cardTitle))
+                    {
+                        <p class="tarifa">@cardTitle.ToUpper()</p>
+                    }
+                </div>
+            </div>
+
+            @if (features != null)
+            {
+                <div class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_inline_rich_text" style="color: #000 !important;">
+                    @features
+                </div>
+            }
         </div>
+
+        @if (ctaLink != null)
+        {
+            <div class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_inline_rich_text" style="width: 100%; text-align: center;">
+                <a href="@ctaLink.Url" class="btn-blue-icon" target="@ctaLink.Target" style="display: inline-flex; align-items: center; justify-content: center; gap: 8px;">
+                    @if (!string.IsNullOrEmpty(ctaIcon))
+                    {
+                        <img src="@ctaIcon" alt="Icon">
+                    }
+                    @ctaLink.Name
+                </a>
+            </div>
+        }
     }
 </div>
